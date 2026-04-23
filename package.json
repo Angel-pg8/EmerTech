@@ -1,4 +1,12 @@
 {
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix EmerTech run dev",
+    "build": "npm --prefix EmerTech run build",
+    "lint": "npm --prefix EmerTech run lint",
+    "preview": "npm --prefix EmerTech run preview",
+    "install:app": "npm --prefix EmerTech install"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4"
   },
