@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import Logo from "../assets/Logo.png";
+import { useNavigate } from "react-router-dom"
+import Logo from "../assets/Logo.png"
 
 const categorias = [
   {
@@ -23,17 +23,16 @@ const categorias = [
     color: "text-red-500",
     ruta: "/emergencias/muy-grave",
   },
-];
+]
 
 export default function Emergencias() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center px-6 pt-10 pb-24 overflow-hidden"
+      className="relative flex min-h-screen flex-col items-center overflow-hidden px-6 pt-10 pb-24"
       style={{ backgroundColor: "#0d1120" }}
     >
-      {/* ECG background wave */}
       <svg
         className="absolute left-0 w-full"
         style={{ top: "15%", height: "120px", opacity: 0.15 }}
@@ -50,34 +49,30 @@ export default function Emergencias() {
         />
       </svg>
 
-      {/* Logo */}
-      <div className="self-start mb-10">
-        <img src={Logo} alt="Logo" className="w-12 h-12 object-contain" />
+      <div className="mb-10 self-start">
+        <img src={Logo} alt="Logo" className="h-12 w-12 object-contain" />
       </div>
 
-      {/* Título */}
-      <h1 className="text-white text-2xl font-bold text-center mb-10">
+      <h1 className="mb-10 text-center text-2xl font-bold text-white">
         Selecciona una categoría
       </h1>
 
-      {/* Tarjetas */}
-      <div className="w-full max-w-sm flex flex-col gap-4">
-        {categorias.map((cat) => (
+      <div className="flex w-full max-w-sm flex-col gap-4">
+        {categorias.map((categoria) => (
           <button
-            key={cat.id}
-            onClick={() => navigate(cat.ruta)}
-            className="relative w-full bg-white rounded-3xl py-5 px-6 text-center shadow-md active:scale-95 transition-transform duration-150 overflow-hidden"
+            key={categoria.id}
+            onClick={() => navigate(categoria.ruta)}
+            className="relative w-full overflow-hidden rounded-3xl bg-white px-6 py-5 text-center shadow-md transition-transform duration-150 active:scale-95"
           >
-           
-            <p className={`relative text-xl font-black tracking-wide ${cat.color}`}>
-              {cat.nivel}
+            <p className={`relative text-xl font-black tracking-wide ${categoria.color}`}>
+              {categoria.nivel}
             </p>
-            <p className="relative text-gray-700 font-bold text-base mt-1">
-              {cat.descripcion}
+            <p className="relative mt-1 text-base font-bold text-gray-700">
+              {categoria.descripcion}
             </p>
           </button>
         ))}
       </div>
     </div>
-  );
+  )
 }
