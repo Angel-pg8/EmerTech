@@ -34,11 +34,15 @@ function Navbar() {
           <span className="text-xs font-bold">Inicio</span>
         </Link>
 
-        <Link to="/emergencias" className="flex flex-col items-center gap-1 px-4 py-1">
+        <a
+          href="tel:911"
+          className="flex flex-col items-center gap-1 px-4 py-1"
+          aria-label="Llamar a emergencias"
+        >
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 shadow-lg">
             <span className="text-xs font-black tracking-wider text-white">SOS</span>
           </div>
-        </Link>
+        </a>
 
         <Link
           to="/chat"
