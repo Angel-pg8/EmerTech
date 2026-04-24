@@ -8,7 +8,7 @@ const app = express()
 
 const PORT = Number(process.env.PORT || 3001)
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || "http://localhost:11434"
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "gemma3"
+const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "gemma4"
 const TIEMPO_LIMITE_MS = 45000
 
 const __filename = fileURLToPath(import.meta.url)

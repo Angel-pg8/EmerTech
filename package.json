@@ -1,5 +1,6 @@
 {
   "name": "emertech",
+  "description": "Plataforma web de apoyo en emergencias para usuarios de El Salvador.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
