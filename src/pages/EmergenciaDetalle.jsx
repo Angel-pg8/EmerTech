@@ -1,66 +1,16 @@
-import { useMemo } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import imgEjemplo from "../assets/ejemplo.jpg"
-
-const emergencias = [
-  {
-    id: "1",
-    nombre: "Heridas leves con sangrado",
-    tipo: "Lesión física",
-    descripcion:
-      "Limpia la zona con agua, aplica presión suave con un paño limpio y revisa si el sangrado disminuye.",
-  },
-  {
-    id: "2",
-    nombre: "Intoxicación alimentaria",
-    tipo: "Sanitaria",
-    descripcion:
-      "Mantén hidratación constante, evita alimentos pesados y vigila señales de deshidratación.",
-  },
-  {
-    id: "3",
-    nombre: "Fracturas o esguinces",
-    tipo: "Lesión física",
-    descripcion:
-      "Inmoviliza la zona, aplica frío local y evita apoyar peso hasta recibir atención profesional.",
-  },
-  {
-    id: "4",
-    nombre: "Reacción alérgica leve",
-    tipo: "Sanitaria",
-    descripcion:
-      "Aléjate del desencadenante, observa la respiración y busca ayuda si los síntomas empeoran.",
-  },
-  {
-    id: "5",
-    nombre: "Quemadura leve",
-    tipo: "Lesión física",
-    descripcion:
-      "Enfría la zona con agua corriente durante varios minutos y no apliques hielo directo.",
-  },
-  {
-    id: "6",
-    nombre: "Dolor de cabeza",
-    tipo: "Neurológica",
-    descripcion:
-      "Descansa en un lugar tranquilo, hidrátate y observa si hay fiebre, vómitos o visión borrosa.",
-  },
-]
+import { obtenerEmergencia } from "../data/emergencias"
 
 function EmergenciaDetalle() {
   const navigate = useNavigate()
-  const { id } = useParams()
-
-  const emergencia = useMemo(
-    () => emergencias.find((item) => item.id === id),
-    [id],
-  )
+  const { categoria, id } = useParams()
+  const emergencia = obtenerEmergencia(categoria, id)
 
   if (!emergencia) {
     return (
       <main className="min-h-screen bg-[#0d1120] px-4 py-8 pb-24 text-white">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/emergencias")}
           className="mb-6 rounded-full bg-white/10 px-4 py-2 text-sm"
         >
           Regresar
@@ -68,7 +18,7 @@ function EmergenciaDetalle() {
         <div className="rounded-3xl bg-white/10 p-6 text-center">
           <h1 className="text-2xl font-bold">Emergencia no encontrada</h1>
           <p className="mt-3 text-white/70">
-            La tarjeta existe en la interfaz, pero este detalle todavía no fue
+            La tarjeta existe en la interfaz, pero este detalle todavia no fue
             cargado.
           </p>
         </div>
@@ -79,7 +29,7 @@ function EmergenciaDetalle() {
   return (
     <main className="min-h-screen bg-[#0d1120] px-4 py-6 pb-24 text-white">
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate(`/emergencias/${categoria}`)}
         className="mb-5 flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm"
       >
         Volver
@@ -87,7 +37,7 @@ function EmergenciaDetalle() {
 
       <article className="overflow-hidden rounded-[28px] bg-white text-gray-900 shadow-xl">
         <img
-          src={imgEjemplo}
+          src={emergencia.imagen}
           alt={emergencia.nombre}
           className="h-56 w-full object-cover"
         />
@@ -106,12 +56,12 @@ function EmergenciaDetalle() {
 
           <section className="rounded-2xl bg-[#eef6ff] p-4">
             <h2 className="text-lg font-bold text-[#0d1120]">
-              Recomendación inicial
+              Recomendacion inicial
             </h2>
             <p className="mt-2 text-sm leading-6 text-gray-700">
               Esta vista es una base funcional para mostrar instrucciones de
-              primeros auxilios. Más adelante aquí podemos conectar contenido
-              real, clasificación y apoyo con IA.
+              primeros auxilios. Mas adelante aqui podemos conectar contenido
+              real, clasificacion y apoyo con IA.
             </p>
           </section>
         </div>

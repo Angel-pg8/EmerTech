@@ -1,45 +1,32 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import Emergencias from "./pages/Emergencias"
-import EmergenciasLeve from "./pages/EmergenciasLeve"
+import EmergenciasCategoria from "./pages/EmergenciasCategoria"
 import EmergenciaDetalle from "./pages/EmergenciaDetalle"
-import EmergenciasPlaceholder from "./pages/EmergenciasPlaceholder"
 import Organizaciones from "./pages/Organizaciones"
+import OrganizacionesLista from "./pages/OrganizacionesLista"
+import OrganizacionDetalle from "./pages/OrganizacionDetalle"
 import ChatBot from "./pages/ChatBot"
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/emergencias" element={<Emergencias />} />
-        <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
-        <Route
-          path="/emergencias/leve/:id"
-          element={<EmergenciaDetalle />}
-        />
-        <Route
-          path="/emergencias/grave"
-          element={
-            <EmergenciasPlaceholder
-              titulo="Emergencias graves"
-              descripcion="Esta categoría está en preparación. Por ahora dejamos la navegación lista para que el flujo no se rompa."
-            />
-          }
-        />
-        <Route
-          path="/emergencias/muy-grave"
-          element={
-            <EmergenciasPlaceholder
-              titulo="Emergencias críticas"
-              descripcion="Esta categoría está en preparación. Por ahora dejamos la navegación lista para que el flujo no se rompa."
-            />
-          }
-        />
-        <Route path="/organizaciones" element={<Organizaciones />} />
-        <Route path="/chat" element={<ChatBot />} />
-      </Routes>
+      <div className="min-h-screen pb-24">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/emergencias" element={<Emergencias />} />
+          <Route path="/emergencias/:categoria" element={<EmergenciasCategoria />} />
+          <Route path="/emergencias/:categoria/:id" element={<EmergenciaDetalle />} />
+          <Route path="/organizaciones" element={<Organizaciones />} />
+          <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
+          <Route
+            path="/organizaciones/:zona/:id"
+            element={<OrganizacionDetalle />}
+          />
+          <Route path="/chat" element={<ChatBot />} />
+        </Routes>
+      </div>
       <Navbar />
     </BrowserRouter>
   )
