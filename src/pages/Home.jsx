@@ -13,7 +13,7 @@ function Home() {
       <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-5 px-6">
         <div
           onClick={() => navigate("/emergencias")}
-          className="flex w-full cursor-pointer items-center justify-between rounded-2xl bg-white px-5 py-10 shadow-lg transition-transform active:scale-95"
+          className="flex w-full cursor-pointer items-center justify-between rounded-2xl bg-white px-4 py-5 shadow-lg transition-transform active:scale-95"
         >
           <img
             src={emergenciaIcono}
@@ -31,10 +31,10 @@ function Home() {
             &rsaquo;
           </span>
         </div>
-
+        <br />
         <div
           onClick={() => navigate("/organizaciones")}
-          className="flex w-full cursor-pointer items-center justify-between rounded-2xl bg-white px-5 py-10 shadow-lg transition-transform active:scale-95"
+          className="flex w-full cursor-pointer items-center justify-between rounded-2xl bg-white px-4 py-5 shadow-lg transition-transform active:scale-95"
         >
           <img
             src={organizacionesIcono}
@@ -50,6 +50,7 @@ function Home() {
           </div>
           <span className="text-2xl font-bold text-[#0a0e1a]">&rsaquo;</span>
         </div>
+        <br />
       </div>
     </main>
   )

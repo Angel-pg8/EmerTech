@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import graveIcono from "../assets/grave_icono.png"
 import leveIcono from "../assets/leve_icono.png"
-import Logo from "../assets/Logo.png"
+import Logo from "../assets/loguito.png"
 import muyGraveIcono from "../assets/muy_grave_icono.png"
 
 const categorias = [

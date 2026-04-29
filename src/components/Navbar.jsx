@@ -16,7 +16,7 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 z-50 w-full border-t border-white/50 shadow-[0_-10px_30px_rgba(4,12,28,0.16)]"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50"
       style={{ backgroundColor: "#b2ebf2" }}
     >
       <div
