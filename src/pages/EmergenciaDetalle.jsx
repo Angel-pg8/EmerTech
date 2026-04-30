@@ -4,10 +4,10 @@ import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
 // Imágenes header
-import imgDeshidratacion from "../assets/Emergencias_leves_img/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Emergencias_leves_img/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Emergencias_leves_img/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Emergencias_leves_img/intoxicacion.jpg"
+import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves_img/Deshidratacion.jpg"
+import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves_img/dolor_cabeza.jpg"
+import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves_img/dolor_oido.jpg"
+import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves_img/intoxicacion.jpg"
 
 // Imágenes de pasos
 import pasosDeshidratacion from "../assets/leves_pasos/deshidratacion_pasos.jpeg"
