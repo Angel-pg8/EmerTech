@@ -36,7 +36,7 @@ function WelcomeScreen({ onComplete }) {
   }
 
   return (
-    <main className="min-h-screen overflow-y-auto bg-[#0d1120] px-6 py-6 text-white">
+    <main className="min-h-screen min-h-dvh overflow-y-auto bg-[#0d1120] px-6 py-6 text-white">
       <section className="mx-auto w-full max-w-md">
         <header className="mb-5 text-center">
           <img src={logo} alt="EmerTech" className="mx-auto h-16 w-16 object-contain" />

@@ -47,10 +47,10 @@ function ChatWidget({ isOpen, onClose }) {
         }),
       })
 
-      const datos = await peticion.json()
+      const datos = await readJsonResponse(peticion)
 
       if (!peticion.ok) {
-        throw new Error(datos.error || "No fue posible obtener una respuesta.")
+        throw new Error(datos?.error || "No fue posible obtener una respuesta.")
       }
 
       setMensajes((mensajesActuales) => [
@@ -58,7 +58,7 @@ function ChatWidget({ isOpen, onClose }) {
         {
           id: `bot-${Date.now()}`,
           autor: "bot",
-          texto: datos.respuesta || "El asistente no devolvio contenido.",
+          texto: datos?.respuesta || "El asistente no devolvio contenido.",
         },
       ])
     } catch (errorCapturado) {
@@ -162,5 +162,18 @@ function ChatWidget({ isOpen, onClose }) {
   )
 }
 
-export default ChatWidget
+async function readJsonResponse(response) {
+  const text = await response.text()
 
+  if (!text.trim()) {
+    return null
+  }
+
+  try {
+    return JSON.parse(text)
+  } catch {
+    throw new Error("El servidor respondio con un formato inesperado.")
+  }
+}
+
+export default ChatWidget

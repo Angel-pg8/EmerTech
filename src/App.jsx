@@ -10,6 +10,8 @@ import EmergenciasGrave from "./pages/EmergenciasGraves"
 import EmergenciaDetalle from "./pages/EmergenciaDetalle"
 import EmergenciasPlaceholder from "./pages/EmergenciasPlaceholder"
 import Organizaciones from "./pages/Organizaciones"
+import OrganizacionDetalle from "./pages/OrganizacionDetalle"
+import OrganizacionesLista from "./pages/OrganizacionesLista"
 import { getStoredUserProfile } from "./utils/userProfile"
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="max-w-md mx-auto min-h-screen relative shadow-2xl">
+      <div className="relative mx-auto min-h-screen min-h-dvh max-w-md shadow-2xl">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/emergencias" element={<Emergencias />} />
@@ -39,6 +41,11 @@ function App() {
             }
           />
           <Route path="/organizaciones" element={<Organizaciones />} />
+          <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
+          <Route
+            path="/organizaciones/:zona/:id"
+            element={<OrganizacionDetalle />}
+          />
           <Route path="/chat" element={<Navigate to="/" replace />} />
         </Routes>
         <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
