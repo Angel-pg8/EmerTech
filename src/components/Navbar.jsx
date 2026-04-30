@@ -16,15 +16,16 @@ function Navbar({ isChatOpen, onToggleChat }) {
 
   return (
     <nav
-      className="fixed bottom-0 left-1/2 z-50 w-full max-w-md -translate-x-1/2 bg-transparent"
+      className="fixed bottom-0 left-1/2 z-50 w-full max-w-md -translate-x-1/2"
+      style={{ backgroundColor: "#0d1120" }}
     >
       <div
-        className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center px-4 pt-3"
-        style={{ paddingBottom: "calc(0.65rem + env(safe-area-inset-bottom, 0px))" }}
+        className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center px-4 pt-2"
+        style={{ paddingBottom: "calc(0.4rem + env(safe-area-inset-bottom, 0px))" }}
       >
         <Link
           to="/"
-          className={`flex min-h-[72px] flex-col items-center justify-center gap-1 px-2 py-1 ${
+          className={`flex min-h-[56px] flex-col items-center justify-center gap-1 px-2 py-1 ${
             isActive("/") ? "text-[#45e3df]" : "text-white/80"
           }`}
         >
@@ -41,7 +42,7 @@ function Navbar({ isChatOpen, onToggleChat }) {
 
         <a
           href="tel:911"
-          className="flex min-h-[72px] flex-col items-center justify-center gap-1 px-2 py-1 text-center text-white/80"
+          className="flex min-h-[56px] flex-col items-center justify-center gap-1 px-2 py-1 text-center text-white/80"
           aria-label="Llamar a emergencias"
         >
           <img
@@ -55,12 +56,12 @@ function Navbar({ isChatOpen, onToggleChat }) {
           </span>
         </a>
 
-        <div className="h-16 w-px bg-[#65708f]" aria-hidden="true" />
+        <div className="h-12 w-px bg-[#65708f]" aria-hidden="true" />
 
         <button
           type="button"
           onClick={onToggleChat}
-          className={`flex min-h-[72px] flex-col items-center justify-center gap-1 px-2 py-1 ${
+          className={`flex min-h-[56px] flex-col items-center justify-center gap-1 px-2 py-1 ${
             isChatOpen ? "text-[#45e3df]" : "text-white/80"
           }`}
           aria-expanded={isChatOpen}
