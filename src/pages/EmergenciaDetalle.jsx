@@ -4,16 +4,16 @@ import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
 // Imágenes header
-import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves_img/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves_img/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves_img/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves_img/intoxicacion.jpg"
+import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Deshidratacion.jpg"
+import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/dolor_cabeza.jpg"
+import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/dolor_oido.jpg"
+import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/intoxicacion.jpg"
 
 // Imágenes de pasos
-import pasosDeshidratacion from "../assets/leves_pasos/deshidratacion_pasos.jpeg"
-import pasosDolorCabeza from "../assets/leves_pasos/dolor_cabeza_pasos.jpeg"
-import pasosDolorOido from "../assets/leves_pasos/dolor_oido_pasos.jpeg"
-import pasosIntoxicacion from "../assets/leves_pasos/intoxicacon_leve_pasos.jpeg"
+import pasosDeshidratacion from "../assets/Emergencias/Leves/deshidratacion_pasos.jpeg"
+import pasosDolorCabeza from "../assets/Emergencias/Leves/dolor_cabeza_pasos.jpeg"
+import pasosDolorOido from "../assets/Emergencias/Leves/dolor_oido_pasos.jpeg"
+import pasosIntoxicacion from "../assets/Emergencias/Leves/intoxicacon_leve_pasos.jpeg"
 
 const imagenesLocales = {
   "Deshidratacion": imgDeshidratacion,

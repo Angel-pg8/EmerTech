@@ -1,19 +1,11 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/loguito.png"
-<<<<<<< HEAD
-import imgDeshidratacion from "../assets/Emergencias_leves_img/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Emergencias_leves_img/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Emergencias_leves_img/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Emergencias_leves_img/intoxicacion.jpg"
-
-=======
-import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves_img/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves_img/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves_img/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves_img/intoxicacion.jpg"
-import imgQuemadura from "../assets/Portada_emergencias/Emergencias_leves_img/quemadura_leve.jpg"
->>>>>>> 8386a5fd2fb46e707cf81685846d21141636939b
+import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Deshidratacion.jpg"
+import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/dolor_cabeza.jpg"
+import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/dolor_oido.jpg"
+import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/intoxicacion.jpg"
+import imgQuemadura from "../assets/Portada_emergencias/Emergencias_leves/quemadura_leve.jpg"
 
  const emergencias = [
   {
