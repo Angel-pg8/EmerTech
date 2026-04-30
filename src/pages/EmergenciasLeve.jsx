@@ -2,11 +2,11 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import imgEjemplo from "../assets/ejemplo.jpg"
 import Logo from "../assets/loguito.png"
-import imgDeshidratacion from "../assets/Emergencias_leves_img/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Emergencias_leves_img/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Emergencias_leves_img/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Emergencias_leves_img/intoxicacion.jpg"
-import imgQuemadura from "../assets/Emergencias_leves_img/quemadura_leve.jpg"
+import imgDeshidratacion from "../assets/Emergencias/Emergencias_leves_img/Deshidratacion.jpg"
+import imgDolorCabeza from "../assets/Emergencias/Emergencias_leves_img/dolor_cabeza.jpg"
+import imgDolorOido from "../assets/Emergencias/Emergencias_leves_img/dolor_oido.jpg"
+import imgIntoxicacion from "../assets/Emergencias/Emergencias_leves_img/intoxicacion.jpg"
+import imgQuemadura from "../assets/Emergencias/Emergencias_leves_img/quemadura_leve.jpg"
 
  const emergencias = [
   {

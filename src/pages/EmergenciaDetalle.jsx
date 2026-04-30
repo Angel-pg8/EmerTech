@@ -4,10 +4,10 @@ import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
 // Mapeo de id → imagen local
-import imgDeshidratacion from "../assets/Emergencias_leves_img/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Emergencias_leves_img/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Emergencias_leves_img/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Emergencias_leves_img/intoxicacion.jpg"
+import imgDeshidratacion from "../assets/Emergencias/Emergencias_leves_img/Deshidratacion.jpg"
+import imgDolorCabeza from "../assets/Emergencias/Emergencias_leves_img/dolor_cabeza.jpg"
+import imgDolorOido from "../assets/Emergencias/Emergencias_leves_img/dolor_oido.jpg"
+import imgIntoxicacion from "../assets/Emergencias/Emergencias_leves_img/intoxicacion.jpg"
 
 const imagenesLocales = {
   "Deshidratacion": imgDeshidratacion,
