@@ -5,7 +5,6 @@ import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/D
 import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/dolor_cabeza.jpg"
 import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/dolor_oido.jpg"
 import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/intoxicacion.jpg"
-import imgQuemadura from "../assets/Portada_emergencias/Emergencias_leves/quemadura_leve.jpg"
 
  const emergencias = [
   {

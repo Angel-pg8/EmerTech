@@ -1,5 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useState } from "react"
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom"
+import ChatWidget from "./components/ChatWidget"
 import Navbar from "./components/Navbar"
+import WelcomeScreen from "./components/WelcomeScreen"
 import Home from "./pages/Home"
 import Emergencias from "./pages/Emergencias"
 import EmergenciasLeve from "./pages/EmergenciasLeve"
@@ -7,9 +10,16 @@ import EmergenciasGrave from "./pages/EmergenciasGraves"
 import EmergenciaDetalle from "./pages/EmergenciaDetalle"
 import EmergenciasPlaceholder from "./pages/EmergenciasPlaceholder"
 import Organizaciones from "./pages/Organizaciones"
-import ChatBot from "./pages/ChatBot"
+import { getStoredUserProfile } from "./utils/userProfile"
 
 function App() {
+  const [userProfile, setUserProfile] = useState(() => getStoredUserProfile())
+  const [isChatOpen, setIsChatOpen] = useState(false)
+
+  if (!userProfile) {
+    return <WelcomeScreen onComplete={setUserProfile} />
+  }
+
   return (
     <BrowserRouter>
       <div className="max-w-md mx-auto min-h-screen relative shadow-2xl">
@@ -29,9 +39,13 @@ function App() {
             }
           />
           <Route path="/organizaciones" element={<Organizaciones />} />
-          <Route path="/chat" element={<ChatBot />} />
+          <Route path="/chat" element={<Navigate to="/" replace />} />
         </Routes>
-        <Navbar />
+        <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+        <Navbar
+          isChatOpen={isChatOpen}
+          onToggleChat={() => setIsChatOpen((currentValue) => !currentValue)}
+        />
       </div>
     </BrowserRouter>
   )
