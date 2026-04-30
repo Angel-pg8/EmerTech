@@ -4,6 +4,9 @@ import { createChatResponse, getChatHealth } from "./server/chatService.js"
 
 export default defineConfig({
   plugins: [react(), emertechApi()],
+  server: {
+    allowedHosts: ["emertech.onrender.com"]
+  }
 })
 
 function emertechApi() {
