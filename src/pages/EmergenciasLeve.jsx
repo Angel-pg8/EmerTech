@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import imgEjemplo from "../assets/ejemplo.jpg"
 import Logo from "../assets/loguito.png"
 import imgDeshidratacion from "../assets/Emergencias_leves_img/Deshidratacion.jpg"
 import imgDolorCabeza from "../assets/Emergencias_leves_img/dolor_cabeza.jpg"
