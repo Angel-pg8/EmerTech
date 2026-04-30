@@ -1,47 +1,35 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/loguito.png"
-import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/intoxicacion.jpg"
+import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
+import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
+import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
+import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/mordidadeanimal-GRAVE.png"
 
 const emergencias = [
   {
-    id: "Paro cardiaco",
-    nombre: "Paro cardiaco",
-    tipo: "Cardiovascular",
-    imagen: imgDolorOido,
-  },
-  {
-    id: "Accidente cerebrovascular",
-    nombre: "Accidente cerebrovascular",
+    id: "Convulsion",
+    nombre: "Convulsión",
     tipo: "Neurológica",
-    imagen: imgDolorCabeza,
+    imagen: imgConvulsion,
   },
   {
-    id: "Quemadura grave",
-    nombre: "Quemadura grave",
-    tipo: "Lesión física",
-    imagen: imgDeshidratacion,
-  },
-  {
-    id: "Fractura expuesta",
-    nombre: "Fractura expuesta",
+    id: "Fractura de brazo",
+    nombre: "Fractura de brazo",
     tipo: "Traumatológica",
+    imagen: imgFractura,
+  },
+  {
+    id: "Intoxicacion alimentaria",
+    nombre: "Intoxicación alimentaria",
+    tipo: "Toxicológica",
     imagen: imgIntoxicacion,
   },
   {
-    id: "Anafilaxia",
-    nombre: "Anafilaxia",
-    tipo: "Alérgica",
-    imagen: imgDolorCabeza,
-  },
-  {
-    id: "Hemorragia severa",
-    nombre: "Hemorragia severa",
-    tipo: "Vascular",
-    imagen: imgDeshidratacion,
+    id: "Mordida de animal",
+    nombre: "Mordida de animal",
+    tipo: "Lesión física",
+    imagen: imgMordida,
   },
 ]
 
@@ -103,10 +91,10 @@ export default function EmergenciasGrave() {
         </div>
       </div>
 
-      {/* LISTA DE TARJETAS */}
-      <div className="flex flex-col gap-3 px-10 pt-4">
+      {/* GRID DE TARJETAS */}
+      <div className="grid grid-cols-2 gap-3 px-4 pt-4">
         {filtradas.length === 0 ? (
-          <p className="mt-10 text-center text-white/50">
+          <p className="col-span-2 mt-10 text-center text-white/50">
             No se encontraron resultados
           </p>
         ) : (
@@ -114,20 +102,22 @@ export default function EmergenciasGrave() {
             <div
               key={emergencia.id}
               onClick={() => navigate(`/emergencias/grave/${emergencia.id}`)}
-              className="flex items-center overflow-hidden rounded-2xl bg-white shadow-md transition-transform active:scale-95 cursor-pointer"
+              className="overflow-hidden rounded-2xl bg-white shadow-md transition-transform active:scale-95 cursor-pointer"
             >
+              {/* Imagen */}
               <img
                 src={emergencia.imagen}
                 alt={emergencia.nombre}
-                className="h-24 w-24 shrink-0 object-cover"
+                className="w-full h-28 object-cover"
               />
-              <div className="flex-1 px-4">
-                <p className="text-sm font-bold leading-snug text-gray-800">
+
+              {/* Texto */}
+              <div className="p-3">
+                <p className="text-xs font-bold leading-snug text-gray-800">
                   {emergencia.nombre}
                 </p>
-                <p className="mt-1 text-xs text-gray-400">{emergencia.tipo}</p>
+                <p className="mt-1 text-[10px] text-gray-400">{emergencia.tipo}</p>
               </div>
-              <span className="pr-4 text-2xl font-bold text-gray-300">›</span>
             </div>
           ))
         )}
