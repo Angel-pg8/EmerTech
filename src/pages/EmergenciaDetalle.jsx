@@ -3,11 +3,10 @@ import { useNavigate, useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
-// Imágenes header
-import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Deshidratacion.jpg"
-import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/dolor_cabeza.jpg"
-import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/dolor_oido.jpg"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/intoxicacion.jpg"
+import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
+import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
+import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
+import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/intoxicacionleve-LEVE.png"
 
 // Imágenes de pasos
 import pasosDeshidratacion from "../assets/Emergencias/Leves/deshidratacion_pasos.jpeg"
@@ -89,7 +88,7 @@ function EmergenciaDetalle() {
           <img
             src={imagen}
             alt={nombreEmergencia}
-            className="h-64 w-full object-cover"
+            className="h-48 w-full object-cover"
           />
         )}
         <button
