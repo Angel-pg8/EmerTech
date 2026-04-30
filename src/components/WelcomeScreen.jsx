@@ -1,5 +1,5 @@
 import { useState } from "react"
-import logo from "../assets/Logo.png"
+import logo from "../assets/loguito.png"
 import { saveUserProfile } from "../utils/userProfile"
 
 const initialForm = {
