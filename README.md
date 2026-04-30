@@ -38,8 +38,6 @@ public/
 
 - Node.js 18 o superior
 - npm
-- Ollama instalado en la maquina donde correra el backend
-- Un modelo disponible en Ollama, por ejemplo `gemma4`
 
 ## Instalacion
 
@@ -53,6 +51,7 @@ Frontend:
 
 ```bash
 npm run dev
+npm run dev:mobile
 ```
 
 Backend:
