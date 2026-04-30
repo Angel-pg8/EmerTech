@@ -7,7 +7,7 @@ import muyGraveIcono from "../assets/muy_grave_icono.png"
 const categorias = [
   {
     id: "leve",
-    nivel: "LEVE",
+    nivel: "LEVES",
     descripcion: "Incidentes leves",
     color: "text-emerald-400",
     barColor: "bg-emerald-400",
@@ -16,7 +16,7 @@ const categorias = [
   },
   {
     id: "grave",
-    nivel: "GRAVE",
+    nivel: "GRAVES",
     descripcion: "Situaciones serias",
     color: "text-yellow-400",
     barColor: "bg-yellow-400",
@@ -25,7 +25,7 @@ const categorias = [
   },
   {
     id: "muy-grave",
-    nivel: "MUY GRAVE",
+    nivel: "MUY GRAVES",
     descripcion: "Emergencias criticas",
     color: "text-red-500",
     barColor: "bg-red-500",

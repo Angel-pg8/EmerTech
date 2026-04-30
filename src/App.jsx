@@ -8,6 +8,7 @@ import Emergencias from "./pages/Emergencias"
 import EmergenciasLeve from "./pages/EmergenciasLeve"
 import EmergenciasGrave from "./pages/EmergenciasGraves"
 import EmergenciaDetalle from "./pages/EmergenciaDetalle"
+import EmergenciaDetalleGrave from "./pages/EmergenciaDetalleGraves"
 import EmergenciasPlaceholder from "./pages/EmergenciasPlaceholder"
 import Organizaciones from "./pages/Organizaciones"
 import OrganizacionDetalle from "./pages/OrganizacionDetalle"
@@ -30,7 +31,8 @@ function App() {
           <Route path="/emergencias" element={<Emergencias />} />
           <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
           <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
-           <Route path="/emergencias/grave" element={<EmergenciasGrave/>} />
+          <Route path="/emergencias/grave/:id" element={<EmergenciaDetalleGrave />} />
+          <Route path="/emergencias/grave" element={<EmergenciasGrave/>} />
           <Route
             path="/emergencias/muy-grave"
             element={

@@ -8,25 +8,25 @@ import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergenc
 
 const emergencias = [
   {
-    id: "Convulsion",
+    id: "Convulción leve",
     nombre: "Convulsión",
-    tipo: "Neurológica",
+    tipo: "Sanitaria",
     imagen: imgConvulsion,
   },
   {
     id: "Fractura de brazo",
     nombre: "Fractura de brazo",
-    tipo: "Traumatológica",
+    tipo: "Lesión fisica",
     imagen: imgFractura,
   },
   {
-    id: "Intoxicacion alimentaria",
-    nombre: "Intoxicación alimentaria",
-    tipo: "Toxicológica",
-    imagen: imgIntoxicacion,
+  id: "intoxicacion alimentaria",
+  nombre: "Intoxicación alimentaria",
+  tipo: "Sanitaria",
+  imagen: imgIntoxicacion,
   },
   {
-    id: "Mordida de animal",
+    id: "Mordedura de animal",
     nombre: "Mordida de animal",
     tipo: "Lesión física",
     imagen: imgMordida,
