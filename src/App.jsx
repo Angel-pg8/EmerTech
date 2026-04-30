@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import Emergencias from "./pages/Emergencias"
 import EmergenciasLeve from "./pages/EmergenciasLeve"
+import EmergenciasGrave from "./pages/EmergenciasGraves"
 import EmergenciaDetalle from "./pages/EmergenciaDetalle"
 import EmergenciasPlaceholder from "./pages/EmergenciasPlaceholder"
 import Organizaciones from "./pages/Organizaciones"
@@ -17,15 +18,7 @@ function App() {
           <Route path="/emergencias" element={<Emergencias />} />
           <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
           <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
-          <Route
-            path="/emergencias/grave"
-            element={
-              <EmergenciasPlaceholder
-                titulo="Emergencias graves"
-                descripcion="Esta categoría está en preparación. Por ahora dejamos la navegación lista para que el flujo no se rompa."
-              />
-            }
-          />
+           <Route path="/emergencias/grave" element={<EmergenciasGrave/>} />
           <Route
             path="/emergencias/muy-grave"
             element={

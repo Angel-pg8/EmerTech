@@ -3,11 +3,17 @@ import { useNavigate, useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
-// Mapeo de id → imagen local
+// Imágenes header
 import imgDeshidratacion from "../assets/Emergencias_leves_img/Deshidratacion.jpg"
 import imgDolorCabeza from "../assets/Emergencias_leves_img/dolor_cabeza.jpg"
 import imgDolorOido from "../assets/Emergencias_leves_img/dolor_oido.jpg"
 import imgIntoxicacion from "../assets/Emergencias_leves_img/intoxicacion.jpg"
+
+// Imágenes de pasos
+import pasosDeshidratacion from "../assets/leves_pasos/deshidratacion_pasos.jpeg"
+import pasosDolorCabeza from "../assets/leves_pasos/dolor_cabeza_pasos.jpeg"
+import pasosDolorOido from "../assets/leves_pasos/dolor_oido_pasos.jpeg"
+import pasosIntoxicacion from "../assets/leves_pasos/intoxicacon_leve_pasos.jpeg"
 
 const imagenesLocales = {
   "Deshidratacion": imgDeshidratacion,
@@ -16,18 +22,24 @@ const imagenesLocales = {
   "Intoxicacion leve": imgIntoxicacion,
 }
 
+const imagenesPasos = {
+  "Deshidratacion": pasosDeshidratacion,
+  "Dolor de cabeza": pasosDolorCabeza,
+  "Dolor de oido": pasosDolorOido,
+  "Intoxicacion leve": pasosIntoxicacion,
+}
+
 function EmergenciaDetalle() {
   const navigate = useNavigate()
   const { id } = useParams()
   const [emergencia, setEmergencia] = useState(null)
   const [cargando, setCargando] = useState(true)
 
- useEffect(() => {
+  useEffect(() => {
     const fetchEmergencia = async () => {
       try {
         const docRef = doc(db, "Emergencias leves", id)
         const docSnap = await getDoc(docRef)
-
         if (docSnap.exists()) {
           setEmergencia({ id: docSnap.id, ...docSnap.data() })
         }
@@ -37,7 +49,6 @@ function EmergenciaDetalle() {
         setCargando(false)
       }
     }
-
     fetchEmergencia()
   }, [id])
 
@@ -65,7 +76,9 @@ function EmergenciaDetalle() {
     )
   }
 
-  const imagen = imagenesLocales[emergencia["Nombre de la emergencia"]] || null
+  const nombreEmergencia = emergencia["Nombre de la emergencia"]
+  const imagen = imagenesLocales[nombreEmergencia] || null
+  const imagenPasos = imagenesPasos[nombreEmergencia] || null
 
   return (
     <main className="min-h-screen bg-[#0d1120] pb-24 text-white">
@@ -75,7 +88,7 @@ function EmergenciaDetalle() {
         {imagen && (
           <img
             src={imagen}
-            alt={emergencia["Nombre de la emergencia"]}
+            alt={nombreEmergencia}
             className="h-64 w-full object-cover"
           />
         )}
@@ -97,7 +110,7 @@ function EmergenciaDetalle() {
           {emergencia["Tipo de emergencia"]}
         </p>
         <h1 className="mt-1 text-2xl font-black text-gray-900">
-          {emergencia["Nombre de la emergencia"]}
+          {nombreEmergencia}
         </h1>
 
         <div className="my-4 h-px bg-gray-100" />
@@ -111,6 +124,17 @@ function EmergenciaDetalle() {
             {emergencia["Entidades a contactar"]}
           </p>
         </div>
+
+        {/* Imagen de pasos */}
+        {imagenPasos && (
+          <div className="mt-6">
+            <img
+              src={imagenPasos}
+              alt={`Pasos para ${nombreEmergencia}`}
+              className="w-full rounded-2xl object-contain"
+            />
+          </div>
+        )}
 
       </div>
     </main>

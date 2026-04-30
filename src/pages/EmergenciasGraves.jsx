@@ -1,41 +1,51 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import imgEjemplo from "../assets/ejemplo.jpg"
 import Logo from "../assets/loguito.png"
 import imgDeshidratacion from "../assets/Emergencias_leves_img/Deshidratacion.jpg"
 import imgDolorCabeza from "../assets/Emergencias_leves_img/dolor_cabeza.jpg"
 import imgDolorOido from "../assets/Emergencias_leves_img/dolor_oido.jpg"
 import imgIntoxicacion from "../assets/Emergencias_leves_img/intoxicacion.jpg"
 
-
- const emergencias = [
+const emergencias = [
   {
-    id: "Dolor de oido",
-    nombre: "Dolor de oído",
-    tipo: "Otológica",
+    id: "Paro cardiaco",
+    nombre: "Paro cardiaco",
+    tipo: "Cardiovascular",
     imagen: imgDolorOido,
   },
   {
-    id: "Dolor de cabeza",
-    nombre: "Dolor de cabeza",
+    id: "Accidente cerebrovascular",
+    nombre: "Accidente cerebrovascular",
     tipo: "Neurológica",
     imagen: imgDolorCabeza,
   },
   {
-    id: "Deshidratacion",
-    nombre: "Deshidratación",
-    tipo: "Metabólica",
+    id: "Quemadura grave",
+    nombre: "Quemadura grave",
+    tipo: "Lesión física",
     imagen: imgDeshidratacion,
   },
   {
-    id: "Intoxicacion leve",
-    nombre: "Intoxicación leve",
-    tipo: "Toxicológica",
+    id: "Fractura expuesta",
+    nombre: "Fractura expuesta",
+    tipo: "Traumatológica",
     imagen: imgIntoxicacion,
   },
- 
+  {
+    id: "Anafilaxia",
+    nombre: "Anafilaxia",
+    tipo: "Alérgica",
+    imagen: imgDolorCabeza,
+  },
+  {
+    id: "Hemorragia severa",
+    nombre: "Hemorragia severa",
+    tipo: "Vascular",
+    imagen: imgDeshidratacion,
+  },
 ]
-export default function EmergenciasLeve() {
+
+export default function EmergenciasGrave() {
   const navigate = useNavigate()
   const [busqueda, setBusqueda] = useState("")
 
@@ -59,11 +69,11 @@ export default function EmergenciasLeve() {
           />
           <h1 className="text-2xl font-black text-white leading-tight">
             Más información sobre{" "}
-            <span style={{ color: "#3EB9BC" }}>emergencias leves:</span>
+            <span style={{ color: "#3EB9BC" }}>emergencias graves:</span>
           </h1>
         </div>
 
-        {/* BUSCADOR — mismo color que el fondo */}
+        {/* BUSCADOR */}
         <div
           className="flex items-center gap-2 rounded-xl px-3 py-2"
           style={{ backgroundColor: "#1a2236" }}
@@ -93,7 +103,7 @@ export default function EmergenciasLeve() {
         </div>
       </div>
 
-      {/* LISTA DE TARJETAS HORIZONTALES */}
+      {/* LISTA DE TARJETAS */}
       <div className="flex flex-col gap-3 px-10 pt-4">
         {filtradas.length === 0 ? (
           <p className="mt-10 text-center text-white/50">
@@ -103,25 +113,20 @@ export default function EmergenciasLeve() {
           filtradas.map((emergencia) => (
             <div
               key={emergencia.id}
-              onClick={() => navigate(`/emergencias/leve/${emergencia.id}`)}
+              onClick={() => navigate(`/emergencias/grave/${emergencia.id}`)}
               className="flex items-center overflow-hidden rounded-2xl bg-white shadow-md transition-transform active:scale-95 cursor-pointer"
             >
-              {/* Imagen cuadrada a la izquierda */}
               <img
                 src={emergencia.imagen}
                 alt={emergencia.nombre}
                 className="h-24 w-24 shrink-0 object-cover"
               />
-
-              {/* Texto */}
               <div className="flex-1 px-4">
                 <p className="text-sm font-bold leading-snug text-gray-800">
                   {emergencia.nombre}
                 </p>
                 <p className="mt-1 text-xs text-gray-400">{emergencia.tipo}</p>
               </div>
-
-              {/* Flecha */}
               <span className="pr-4 text-2xl font-bold text-gray-300">›</span>
             </div>
           ))
