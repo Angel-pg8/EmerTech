@@ -23,14 +23,14 @@ const categorias = [
     icono: graveIcono,
     ruta: "/emergencias/grave",
   },
-  {
+    {
     id: "muy-grave",
     nivel: "MUY GRAVES",
     descripcion: "Emergencias criticas",
     color: "text-red-500",
     barColor: "bg-red-500",
     icono: muyGraveIcono,
-    ruta: "/emergencias/muy-grave",
+    ruta: "/emergencias/muygraves",  // ← solo cambia esta línea
   },
 ]
 
