@@ -44,9 +44,14 @@ export default function Emergencias() {
     >
       
 
-      <div className="mb-10 self-start">
-        <img src={Logo} alt="Logo" className="h-20 w-20 object-contain" />
-      </div>
+     <div className="mb-10 self-start">
+    <img
+      src={Logo}
+      alt="Logo"
+      className="h-20 w-20 object-contain cursor-pointer"
+      onClick={() => navigate(-1)}
+    />
+  </div>
 
       <h1 className="mb-10 text-center text-3xl font-bold text-white">
         <span style={{ color: "#3EB9BC" }}>Selecciona</span> una categoria
