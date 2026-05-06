@@ -48,8 +48,7 @@ export default function Emergencias() {
     <img
       src={Logo}
       alt="Logo"
-      className="h-20 w-20 object-contain cursor-pointer"
-      onClick={() => navigate(-1)}
+      className="h-20 w-20 object-contain"
     />
   </div>
 
