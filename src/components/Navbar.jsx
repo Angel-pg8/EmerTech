@@ -21,7 +21,7 @@ function Navbar({ isChatOpen, onToggleChat }) {
 
   return (
     <nav
-      className="fixed bottom-0 left-1/2 z-50 w-full max-w-md -translate-x-1/2"
+      className="w-full"
       style={{ backgroundColor: "#0d1120" }}
     >
       <div
