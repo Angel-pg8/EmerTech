@@ -1,39 +1,42 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/loguito.png"
-import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
-import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
-import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/mordidadeanimal-GRAVE.png"
-
+import imgBajoAzucar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/bajoazucar-MUYGRAVE.png";
+import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/convulsionsevera-MUYGRAVE.png";
+import imgDolorPecho from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/dolorenelpecho-MUYGRAVE.png";
+import imgFiebre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fiebrealta-MUYGRAVE.png";
 const emergencias = [
   {
-    id: "Convulción leve",
+    id: "Convulsion",
+    docId: "Convulsión",
     nombre: "Convulsión",
     tipo: "Sanitaria",
     imagen: imgConvulsion,
   },
   {
-    id: "Fractura de brazo",
-    nombre: "Fractura de brazo",
-    tipo: "Lesión fisica",
-    imagen: imgFractura,
+    id: "Dolor-en-el-pecho",
+    docId: "Dolor en el pecho",
+    nombre: "Dolor de pecho",
+    tipo: "Sanitaria",
+    imagen: imgDolorPecho,
   },
   {
-  id: "intoxicacion alimentaria",
-  nombre: "Intoxicación alimentaria",
-  tipo: "Sanitaria",
-  imagen: imgIntoxicacion,
+    id: "Fiebre-alta-persistente",
+    docId: "Fiebre alta persistente",
+    nombre: "Fiebre alta persistente",
+    tipo: "Sanitaria",
+    imagen: imgFiebre,
   },
   {
-    id: "Mordedura de animal",
-    nombre: "Mordida de animal",
-    tipo: "Lesión física",
-    imagen: imgMordida,
+    id: "Hipoglucemia",
+    docId: "Hipoglucemia",
+    nombre: "Hipoglucemia",
+    tipo: "Metabólica",
+    imagen: imgBajoAzucar,
   },
 ]
 
-export default function EmergenciasGrave() {
+export default function EmergenciasMuyGrave() {
   const navigate = useNavigate()
   const [busqueda, setBusqueda] = useState("")
 
@@ -57,7 +60,7 @@ export default function EmergenciasGrave() {
           />
           <h1 className="text-2xl font-black text-white leading-tight">
             Más información sobre{" "}
-            <span style={{ color: "#3EB9BC" }}>emergencias graves:</span>
+            <span style={{ color: "#3EB9BC" }}>emergencias muy graves:</span>
           </h1>
         </div>
 
@@ -101,17 +104,14 @@ export default function EmergenciasGrave() {
           filtradas.map((emergencia) => (
             <div
               key={emergencia.id}
-              onClick={() => navigate(`/emergencias/grave/${emergencia.id}`)}
+              onClick={() => navigate(`/emergencias/muygraves/${emergencia.id}`, { state: { docId: emergencia.docId } })}
               className="overflow-hidden rounded-2xl bg-white shadow-md transition-transform active:scale-95 cursor-pointer"
             >
-              {/* Imagen */}
               <img
                 src={emergencia.imagen}
                 alt={emergencia.nombre}
                 className="w-full h-28 object-cover"
               />
-
-              {/* Texto */}
               <div className="p-3">
                 <p className="text-xs font-bold leading-snug text-gray-800">
                   {emergencia.nombre}

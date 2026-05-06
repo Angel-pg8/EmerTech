@@ -3,32 +3,32 @@ import { useNavigate, useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
-import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
-import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
-import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/intoxicacionleve-LEVE.png"
+import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
+import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
+import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
+import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/mordidadeanimal-GRAVE.png"
 
 // Imágenes de pasos
-import pasosDeshidratacion from "../assets/Emergencias/Leves/deshidratacion_pasos.jpeg"
-import pasosDolorCabeza from "../assets/Emergencias/Leves/dolor_cabeza_pasos.jpeg"
-import pasosDolorOido from "../assets/Emergencias/Leves/dolor_oido_pasos.jpeg"
-import pasosIntoxicacion from "../assets/Emergencias/Leves/intoxicacon_leve_pasos.jpeg"
+import pasosConvulsion from "../assets/Emergencias/Graves/convulsionleve_pasos.jpeg"
+import pasosFractura from "../assets/Emergencias/Graves/fractura_brazo_pasos.jpeg"
+import pasosIntoxicacion from "../assets/Emergencias/Graves/intoxicacion_alimentaria_pasos.jpeg"
+import pasosMordida from "../assets/Emergencias/Graves/mordedura_animal_pasos.jpeg"
 
 const imagenesLocales = {
-  "Deshidratacion": imgDeshidratacion,
-  "Dolor de cabeza": imgDolorCabeza,
-  "Dolor de oido": imgDolorOido,
-  "Intoxicacion leve": imgIntoxicacion,
+  "Convulsión leve": imgConvulsion,
+  "Fractura de brazo": imgFractura,
+  "Intoxicación alimentaria": imgIntoxicacion,
+  "Mordedura de animal": imgMordida,
 }
 
 const imagenesPasos = {
-  "Deshidratacion": pasosDeshidratacion,
-  "Dolor de cabeza": pasosDolorCabeza,
-  "Dolor de oido": pasosDolorOido,
-  "Intoxicacion leve": pasosIntoxicacion,
+  "Convulsión leve": pasosConvulsion,
+  "Fractura de brazo": pasosFractura,
+  "Intoxicación alimentaria": pasosIntoxicacion,
+  "Mordedura de animal": pasosMordida,
 }
 
-function EmergenciaDetalle() {
+function EmergenciaDetalleGrave() {
   const navigate = useNavigate()
   const { id } = useParams()
   const [emergencia, setEmergencia] = useState(null)
@@ -37,7 +37,7 @@ function EmergenciaDetalle() {
   useEffect(() => {
     const fetchEmergencia = async () => {
       try {
-        const docRef = doc(db, "Emergencias leves", id)
+        const docRef = doc(db, "Emergencias graves", id)
         const docSnap = await getDoc(docRef)
         if (docSnap.exists()) {
           setEmergencia({ id: docSnap.id, ...docSnap.data() })
@@ -140,4 +140,4 @@ function EmergenciaDetalle() {
   )
 }
 
-export default EmergenciaDetalle
+export default EmergenciaDetalleGrave

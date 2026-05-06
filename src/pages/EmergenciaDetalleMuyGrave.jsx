@@ -1,43 +1,45 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
-import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
-import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
-import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/intoxicacionleve-LEVE.png"
+import imgBajoAzucar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/bajoazucar-MUYGRAVE.png";
+import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/convulsionsevera-MUYGRAVE.png";
+import imgDolorPecho from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/dolorenelpecho-MUYGRAVE.png";
+import imgFiebre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fiebrealta-MUYGRAVE.png";
 
-// Imágenes de pasos
-import pasosDeshidratacion from "../assets/Emergencias/Leves/deshidratacion_pasos.jpeg"
-import pasosDolorCabeza from "../assets/Emergencias/Leves/dolor_cabeza_pasos.jpeg"
-import pasosDolorOido from "../assets/Emergencias/Leves/dolor_oido_pasos.jpeg"
-import pasosIntoxicacion from "../assets/Emergencias/Leves/intoxicacon_leve_pasos.jpeg"
+// Imágenes de pasos — agrégalas a assets/Emergencias/MuyGraves/
+import pasosConvulsion from "../assets/Emergencias/Muy_graves/convulsion_pasos.jpeg"
+import pasosDolorPecho from "../assets/Emergencias/Muy_graves/dolor_pecho_pasos.jpeg"
+import pasosFiebre from "../assets/Emergencias/Muy_graves/fiebre_alta_persistente_pasos.jpeg"
+import pasosHipoglucemia from "../assets/Emergencias/Muy_graves/hipoglucemia_pasos.jpeg"
 
 const imagenesLocales = {
-  "Deshidratacion": imgDeshidratacion,
-  "Dolor de cabeza": imgDolorCabeza,
-  "Dolor de oido": imgDolorOido,
-  "Intoxicacion leve": imgIntoxicacion,
+  "Convulsión": imgConvulsion,
+  "Dolor de pecho": imgDolorPecho,     
+  "Fiebre alta persistente": imgFiebre,
+  "Hipoglucemia": imgBajoAzucar,
 }
 
 const imagenesPasos = {
-  "Deshidratacion": pasosDeshidratacion,
-  "Dolor de cabeza": pasosDolorCabeza,
-  "Dolor de oido": pasosDolorOido,
-  "Intoxicacion leve": pasosIntoxicacion,
+  "Convulsión": pasosConvulsion,
+    "Dolor de pecho": pasosDolorPecho, 
+  "Fiebre alta persistente": pasosFiebre,
+  "Hipoglucemia": pasosHipoglucemia,
 }
 
-function EmergenciaDetalle() {
+function EmergenciaDetalleMuyGrave() {
   const navigate = useNavigate()
   const { id } = useParams()
+  const { state } = useLocation()
+  const docId = state?.docId || id
   const [emergencia, setEmergencia] = useState(null)
   const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
     const fetchEmergencia = async () => {
       try {
-        const docRef = doc(db, "Emergencias leves", id)
+        const docRef = doc(db, "Emergencias muy graves", docId)
         const docSnap = await getDoc(docRef)
         if (docSnap.exists()) {
           setEmergencia({ id: docSnap.id, ...docSnap.data() })
@@ -49,7 +51,7 @@ function EmergenciaDetalle() {
       }
     }
     fetchEmergencia()
-  }, [id])
+  }, [docId])
 
   if (cargando) {
     return (
@@ -82,7 +84,6 @@ function EmergenciaDetalle() {
   return (
     <main className="min-h-screen bg-[#0d1120] pb-24 text-white">
 
-      {/* Imagen header con botón volver encima */}
       <div className="relative">
         {imagen && (
           <img
@@ -101,10 +102,8 @@ function EmergenciaDetalle() {
         </button>
       </div>
 
-      {/* Contenido */}
       <div className="rounded-t-[28px] bg-white -mt-4 relative text-gray-900 px-5 pt-6 pb-10 min-h-screen">
 
-        {/* Nombre y tipo */}
         <p className="text-sm text-gray-400 font-semibold">
           {emergencia["Tipo de emergencia"]}
         </p>
@@ -114,7 +113,6 @@ function EmergenciaDetalle() {
 
         <div className="my-4 h-px bg-gray-100" />
 
-        {/* Entidades a contactar */}
         <div className="flex gap-4">
           <p className="w-32 shrink-0 text-sm text-gray-400 font-medium">
             Entidades a contactar
@@ -124,7 +122,6 @@ function EmergenciaDetalle() {
           </p>
         </div>
 
-        {/* Imagen de pasos */}
         {imagenPasos && (
           <div className="mt-6">
             <img
@@ -140,4 +137,4 @@ function EmergenciaDetalle() {
   )
 }
 
-export default EmergenciaDetalle
+export default EmergenciaDetalleMuyGrave

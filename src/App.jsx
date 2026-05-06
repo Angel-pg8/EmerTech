@@ -6,7 +6,10 @@ import Home from "./pages/Home"
 import Emergencias from "./pages/Emergencias"
 import EmergenciasLeve from "./pages/EmergenciasLeve"
 import EmergenciasGrave from "./pages/EmergenciasGraves"
+import EmergenciasMuyGrave from "./pages/EmergenciasMuyGrave"
 import EmergenciaDetalle from "./pages/EmergenciaDetalle"
+import EmergenciaDetalleGrave from "./pages/EmergenciaDetalleGraves"
+import EmergenciaDetalleMuyGrave from "./pages/EmergenciaDetalleMuyGrave";
 import EmergenciasPlaceholder from "./pages/EmergenciasPlaceholder"
 import Organizaciones from "./pages/Organizaciones"
 import OrganizacionDetalle from "./pages/OrganizacionDetalle"
@@ -23,16 +26,10 @@ function App() {
           <Route path="/emergencias" element={<Emergencias />} />
           <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
           <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
-           <Route path="/emergencias/grave" element={<EmergenciasGrave/>} />
-          <Route
-            path="/emergencias/muy-grave"
-            element={
-              <EmergenciasPlaceholder
-                titulo="Emergencias críticas"
-                descripcion="Esta categoría está en preparación. Por ahora dejamos la navegación lista para que el flujo no se rompa."
-              />
-            }
-          />
+          <Route path="/emergencias/grave/:id" element={<EmergenciaDetalleGrave />} />
+          <Route path="/emergencias/muygraves" element={<EmergenciasMuyGrave/>} />
+          <Route path="/emergencias/muygraves/:id" element={<EmergenciaDetalleMuyGrave/>} />
+          <Route path="/emergencias/grave" element={<EmergenciasGrave/>} />
           <Route path="/organizaciones" element={<Organizaciones />} />
           <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
           <Route

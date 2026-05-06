@@ -7,7 +7,7 @@ import muyGraveIcono from "../assets/muy_grave_icono.png"
 const categorias = [
   {
     id: "leve",
-    nivel: "LEVE",
+    nivel: "LEVES",
     descripcion: "Incidentes leves",
     color: "text-emerald-400",
     barColor: "bg-emerald-400",
@@ -16,21 +16,21 @@ const categorias = [
   },
   {
     id: "grave",
-    nivel: "GRAVE",
+    nivel: "GRAVES",
     descripcion: "Situaciones serias",
     color: "text-yellow-400",
     barColor: "bg-yellow-400",
     icono: graveIcono,
     ruta: "/emergencias/grave",
   },
-  {
+    {
     id: "muy-grave",
-    nivel: "MUY GRAVE",
+    nivel: "MUY GRAVES",
     descripcion: "Emergencias criticas",
     color: "text-red-500",
     barColor: "bg-red-500",
     icono: muyGraveIcono,
-    ruta: "/emergencias/muy-grave",
+    ruta: "/emergencias/muygraves",  // ← solo cambia esta línea
   },
 ]
 
@@ -44,9 +44,14 @@ export default function Emergencias() {
     >
       
 
-      <div className="mb-10 self-start">
-        <img src={Logo} alt="Logo" className="h-20 w-20 object-contain" />
-      </div>
+     <div className="mb-10 self-start">
+    <img
+      src={Logo}
+      alt="Logo"
+      className="h-20 w-20 object-contain cursor-pointer"
+      onClick={() => navigate(-1)}
+    />
+  </div>
 
       <h1 className="mb-10 text-center text-3xl font-bold text-white">
         <span style={{ color: "#3EB9BC" }}>Selecciona</span> una categoria
