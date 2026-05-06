@@ -2,7 +2,6 @@ import { useState } from "react"
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom"
 import ChatWidget from "./components/ChatWidget"
 import Navbar from "./components/Navbar"
-import WelcomeScreen from "./components/WelcomeScreen"
 import Home from "./pages/Home"
 import Emergencias from "./pages/Emergencias"
 import EmergenciasLeve from "./pages/EmergenciasLeve"
@@ -12,15 +11,9 @@ import EmergenciasPlaceholder from "./pages/EmergenciasPlaceholder"
 import Organizaciones from "./pages/Organizaciones"
 import OrganizacionDetalle from "./pages/OrganizacionDetalle"
 import OrganizacionesLista from "./pages/OrganizacionesLista"
-import { getStoredUserProfile } from "./utils/userProfile"
 
 function App() {
-  const [userProfile, setUserProfile] = useState(() => getStoredUserProfile())
   const [isChatOpen, setIsChatOpen] = useState(false)
-
-  if (!userProfile) {
-    return <WelcomeScreen onComplete={setUserProfile} />
-  }
 
   return (
     <BrowserRouter>

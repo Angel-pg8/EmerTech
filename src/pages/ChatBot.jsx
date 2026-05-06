@@ -2,14 +2,7 @@ import { useState } from "react"
 
 function ChatBot() {
   const [mensaje, setMensaje] = useState("")
-  const [mensajes, setMensajes] = useState([
-    {
-      id: "bienvenida",
-      autor: "bot",
-      texto:
-        "Hola, soy el asistente de EmerTech. Cuentame que esta pasando y te orientare con los primeros pasos.",
-    },
-  ])
+  const [mensajes, setMensajes] = useState([])
   const [error, setError] = useState("")
   const [cargando, setCargando] = useState(false)
 
@@ -56,7 +49,7 @@ function ChatBot() {
         {
           id: `bot-${Date.now()}`,
           autor: "bot",
-          texto: datos.respuesta || "Ollama no devolvio contenido.",
+          texto: datos.respuesta || "El asistente no devolvio contenido.",
         },
       ])
     } catch (errorCapturado) {
@@ -111,7 +104,7 @@ function ChatBot() {
           {cargando ? (
             <article className="flex justify-start">
               <div className="rounded-[24px] rounded-bl-md bg-white/10 px-4 py-3 text-sm text-white/75">
-                Consultando a Ollama...
+                Consultando...
               </div>
             </article>
           ) : null}

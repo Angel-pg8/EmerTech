@@ -7,27 +7,8 @@ const DEFAULT_GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 const DEFAULT_GROQ_MODEL = "llama-3.1-8b-instant"
 
 export function loadLocalEnv() {
-  const envLocalPath = path.resolve(process.cwd(), ".env.local")
-
-  if (!fs.existsSync(envLocalPath)) {
-    return
-  }
-
-  const envFile = fs.readFileSync(envLocalPath, "utf8")
-
-  envFile
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter((line) => line && !line.startsWith("#") && line.includes("="))
-    .forEach((line) => {
-      const separatorIndex = line.indexOf("=")
-      const key = line.slice(0, separatorIndex).trim()
-      const value = line.slice(separatorIndex + 1).trim()
-
-      if (key && !process.env[key]) {
-        process.env[key] = value.replace(/^["']|["']$/g, "")
-      }
-    })
+  loadEnvFile(path.resolve(process.cwd(), ".env.local"))
+  loadEnvFile(path.resolve(process.cwd(), ".env"))
 }
 
 export function getChatHealth() {
@@ -41,7 +22,7 @@ export function getChatHealth() {
   }
 }
 
-export async function createChatResponse({ mensaje, perfilMedico }) {
+export async function createChatResponse({ mensaje }) {
   loadLocalEnv()
 
   if (typeof mensaje !== "string" || !mensaje.trim()) {
@@ -57,7 +38,8 @@ export async function createChatResponse({ mensaje, perfilMedico }) {
     return {
       status: 500,
       body: {
-        error: "Falta configurar la clave GROQ_API_KEY del asistente.",
+        error:
+          "Falta configurar GROQ_API_KEY en el servidor donde esta desplegada la app.",
       },
     }
   }
@@ -79,10 +61,6 @@ export async function createChatResponse({ mensaje, perfilMedico }) {
           {
             role: "system",
             content: EMERTECH_SYSTEM_PROMPT,
-          },
-          {
-            role: "system",
-            content: formatMedicalProfile(perfilMedico),
           },
           {
             role: "user",
@@ -157,6 +135,28 @@ function getGroqModel() {
   return process.env.GROQ_MODEL || DEFAULT_GROQ_MODEL
 }
 
+function loadEnvFile(envPath) {
+  if (!fs.existsSync(envPath)) {
+    return
+  }
+
+  const envFile = fs.readFileSync(envPath, "utf8")
+
+  envFile
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#") && line.includes("="))
+    .forEach((line) => {
+      const separatorIndex = line.indexOf("=")
+      const key = line.slice(0, separatorIndex).trim()
+      const value = line.slice(separatorIndex + 1).trim()
+
+      if (key && !process.env[key]) {
+        process.env[key] = value.replace(/^["']|["']$/g, "")
+      }
+    })
+}
+
 function parseJson(value) {
   if (!value?.trim()) {
     return null
@@ -178,42 +178,3 @@ function buildConnectionError(error) {
 
   return `No fue posible conectarse con la API de IA en este momento. Detalle: ${reason}.`
 }
-
-function formatMedicalProfile(profile) {
-  if (!profile || typeof profile !== "object") {
-    return "No hay perfil medico guardado para este usuario."
-  }
-
-  const fields = [
-    ["Nombre", profile.nombre],
-    ["Edad", profile.edad],
-    ["Contacto de emergencia", profile.contactoEmergencia],
-    ["Alergias", profile.alergias],
-    ["Condiciones medicas", profile.condiciones],
-    ["Medicamentos actuales", profile.medicamentos],
-    ["Notas medicas", profile.notasMedicas],
-  ]
-
-  const content = fields
-    .map(([label, value]) => `${label}: ${sanitizeProfileValue(value)}`)
-    .join("\n")
-
-  return `
-Perfil local del usuario para considerar al responder.
-No reveles estos datos salvo que sea necesario para orientar la emergencia.
-Usalos como contexto, no como base para diagnosticos definitivos.
-
-${content}
-`.trim()
-}
-
-function sanitizeProfileValue(value) {
-  if (typeof value !== "string" && typeof value !== "number") {
-    return "No indicado"
-  }
-
-  const cleanValue = String(value).replace(/\s+/g, " ").trim()
-
-  return cleanValue ? cleanValue.slice(0, 500) : "No indicado"
-}
-

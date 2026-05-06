@@ -1,16 +1,8 @@
 import { useState } from "react"
-import { getStoredUserProfile } from "../utils/userProfile"
-
-const welcomeMessage = {
-  id: "bienvenida",
-  autor: "bot",
-  texto:
-    "Hola, soy el asistente de EmerTech. Cuentame que esta pasando y te orientare con los primeros pasos.",
-}
 
 function ChatWidget({ isOpen, onClose }) {
   const [mensaje, setMensaje] = useState("")
-  const [mensajes, setMensajes] = useState([welcomeMessage])
+  const [mensajes, setMensajes] = useState([])
   const [error, setError] = useState("")
   const [cargando, setCargando] = useState(false)
 
@@ -43,7 +35,6 @@ function ChatWidget({ isOpen, onClose }) {
         },
         body: JSON.stringify({
           mensaje: mensajeLimpio,
-          perfilMedico: getStoredUserProfile(),
         }),
       })
 

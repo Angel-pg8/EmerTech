@@ -11,14 +11,14 @@ Actualmente el proyecto incluye:
 - Frontend con React, Vite y Tailwind CSS.
 - Navegacion base entre pantallas principales.
 - Chat conectado a un backend con Express.
-- Backend preparado para consultar a Ollama en local.
+- Backend preparado para consultar Groq desde el servidor.
 - Boton `SOS` para abrir la llamada de emergencia desde el dispositivo.
 
 ## Stack tecnologico
 
 - Frontend: React, Vite, Tailwind CSS
 - Backend: Node.js, Express
-- IA local: Ollama
+- IA: Groq API
 - Base de datos planificada: Firebase Firestore
 - Mapas planificados: Google Maps JavaScript API
 
@@ -62,22 +62,41 @@ npm run dev:server
 
 ## Variables y configuracion
 
-El backend usa estos valores por defecto:
+El backend usa estos valores:
 
 - `PORT=3001`
-- `OLLAMA_BASE_URL=http://localhost:11434`
-- `OLLAMA_MODEL=gemma4`
+- `GROQ_API_KEY`: obligatoria en el servidor.
+- `GROQ_BASE_URL=https://api.groq.com/openai/v1`
+- `GROQ_MODEL=llama-3.1-8b-instant`
 
-Si necesitan cambiar el modelo en la laptop final, pueden hacerlo sin tocar el codigo,
-solo ajustando la variable `OLLAMA_MODEL`.
+Para desarrollo local, crea `.env.local` tomando `.env.example` como base:
+
+```bash
+GROQ_API_KEY=tu_clave_de_groq
+```
+
+No se debe poner `GROQ_API_KEY` en el frontend ni subirla a GitHub. La clave vive en el
+servidor para que la app funcione desde cualquier telefono o computadora que abra la URL.
 
 ## Flujo actual del chat
 
 1. El usuario escribe un mensaje en la pantalla de chat.
 2. El frontend envia el mensaje a `POST /api/chat`.
 3. El backend agrega el contexto base de EmerTech.
-4. El backend consulta a Ollama en local.
+4. El backend consulta a Groq usando `GROQ_API_KEY`.
 5. La respuesta vuelve al frontend y se muestra al usuario.
+
+## Despliegue
+
+El repositorio incluye `render.yaml` para desplegar frontend y backend juntos en Render.
+
+1. Sube el repositorio a GitHub.
+2. En Render, crea un Blueprint o Web Service desde este repositorio.
+3. Configura la variable secreta `GROQ_API_KEY` en el servicio.
+4. Render ejecutara `npm install && npm run build` y luego `npm run start`.
+
+La URL publica de Render servira la app completa y las rutas `/api/health` y `/api/chat`
+desde el mismo dominio.
 
 ## Scripts disponibles
 
@@ -91,7 +110,7 @@ solo ajustando la variable `OLLAMA_MODEL`.
 ## Nota de despliegue
 
 GitHub Pages sirve bien para demos estaticas del frontend, pero no para este proyecto completo,
-porque EmerTech necesita backend con Express y comunicacion con Ollama local.
+porque EmerTech necesita backend con Express para proteger `GROQ_API_KEY`.
 
 ## Equipo
 
