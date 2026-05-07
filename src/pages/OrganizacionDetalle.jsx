@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
+import GoogleMapEmbed from "../components/GoogleMapEmbed"
 import organizacionesIcono from "../assets/organizaciones_icono.png"
 import { obtenerOrganizacion, obtenerZona } from "../data/organizaciones"
 
@@ -7,6 +8,7 @@ function OrganizacionDetalle() {
   const { zona, id } = useParams()
   const datosZona = obtenerZona(zona)
   const organizacion = obtenerOrganizacion(zona, id)
+  const mapsQuery = `${organizacion?.direccion || organizacion?.nombre || ""}, ${datosZona?.nombre || ""}, El Salvador`
 
   if (!datosZona || !organizacion) {
     return (
@@ -67,6 +69,16 @@ function OrganizacionDetalle() {
               Esta vista sigue el workflow definido para que cada departamento
               lleve a una lista y luego a la ficha informativa de la organizacion.
             </p>
+          </section>
+
+          <section className="rounded-2xl bg-[#eef6ff] p-4">
+            <h2 className="mb-3 text-lg font-bold text-[#0d1120]">
+              Ubicacion
+            </h2>
+            <GoogleMapEmbed
+              query={mapsQuery}
+              title={`Mapa de ${organizacion.nombre}`}
+            />
           </section>
         </div>
       </article>

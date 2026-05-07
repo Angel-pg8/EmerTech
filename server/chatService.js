@@ -7,7 +7,9 @@ const DEFAULT_GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 const DEFAULT_GROQ_MODEL = "llama-3.1-8b-instant"
 
 export function loadLocalEnv() {
+  loadEnvFile(path.resolve(process.cwd(), ".env.development.local"))
   loadEnvFile(path.resolve(process.cwd(), ".env.local"))
+  loadEnvFile(path.resolve(process.cwd(), ".env.development"))
   loadEnvFile(path.resolve(process.cwd(), ".env"))
 }
 
@@ -38,8 +40,7 @@ export async function createChatResponse({ mensaje }) {
     return {
       status: 500,
       body: {
-        error:
-          "Falta configurar GROQ_API_KEY en el servidor donde esta desplegada la app.",
+        error: buildMissingGroqKeyMessage(),
       },
     }
   }
@@ -177,4 +178,15 @@ function buildConnectionError(error) {
     "sin detalle tecnico disponible"
 
   return `No fue posible conectarse con la API de IA en este momento. Detalle: ${reason}.`
+}
+
+function buildMissingGroqKeyMessage() {
+  if (process.env.CODESPACES === "true") {
+    return [
+      "Falta configurar GROQ_API_KEY en este GitHub Codespace.",
+      "Agregala como Codespaces secret en GitHub con el nombre GROQ_API_KEY y reinicia el Codespace.",
+    ].join(" ")
+  }
+
+  return "Falta configurar GROQ_API_KEY en el servidor donde esta desplegada la app."
 }

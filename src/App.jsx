@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom"
 import ChatWidget from "./components/ChatWidget"
+import GoogleAdBanner from "./components/GoogleAdBanner"
 import Navbar from "./components/Navbar"
 import Emergencias from "./pages/Emergencias"
 import EmergenciasLeve from "./pages/EmergenciasLeve"
@@ -30,6 +31,7 @@ function App() {
       <BrowserRouter>
         <div className="relative flex min-h-screen flex-col bg-[#0a0e1a]">
           <div className="flex-1 overflow-y-auto pb-16 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
+            <GoogleAdBanner />
             <Routes>
               <Route path="/" element={<Emergencias />} />
               <Route path="/emergencias" element={<Emergencias />} />
@@ -88,6 +90,7 @@ function App() {
           {/* Contenido */}
           <div className="relative flex flex-col overflow-hidden" style={{ height: "calc(844px - 60px)" }}>
             <div className="flex-1 overflow-y-auto pb-16 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
+              <GoogleAdBanner />
               <Routes>
                 <Route path="/" element={<Emergencias />} />
                 <Route path="/emergencias" element={<Emergencias />} />
