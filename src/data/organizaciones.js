@@ -45,6 +45,13 @@ export const organizacionesPorZona = {
         detalle:
           "Es el centro de referencia para medicina de tercer nivel, especializándose en nefrología, cardiología y cuidados intensivos neonatales.",
       },
+      {
+        id: "7",
+        nombre: "Hospital San Francisco",
+        tipo: "Centro hospitalario",
+        detalle:
+          "se especializa en servicios de emergencia 24/7, cirugía, medicina interna, ginecología, pediatría, laboratorio clínico y atención de máxima urgencia.",
+      },
     ],
   },
   usulutan: {
