@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import graveIcono from "../assets/grave_icono.png"
 import leveIcono from "../assets/leve_icono.png"
-import Logo from "../assets/loguito.png"
+import Logo from "../assets/logo.png"
 import muyGraveIcono from "../assets/muy_grave_icono.png"
 
 const categorias = [
@@ -44,13 +44,12 @@ export default function Emergencias() {
     >
       
 
-     <div className="mb-10 self-start">
     <img
       src={Logo}
       alt="Logo"
-      className="h-20 w-20 object-contain"
+      className="h-62 w-62 object-contain"
     />
-  </div>
+
 
       <h1 className="mb-10 text-center text-3xl font-bold text-white">
         <span style={{ color: "#3EB9BC" }}>Selecciona</span> una categoria
