@@ -17,6 +17,41 @@ export const organizacionesPorZona = {
         detalle:
           "Atiende urgencias generales y canaliza casos de mayor complejidad dentro de la region oriental.",
       },
+      {
+        id: "3",
+        nombre: "Cruz Roja Salvadoreña",
+        tipo: "Centro hospitalario",
+        detalle:
+          " Se especializan en la gestión de bancos de sangre y su fuerte es el rescate acuático y la asistencia humanitaria en desastres naturales",
+      },
+      {
+        id: "4",
+        nombre: "Cuerpo de Bomberos",
+        tipo: "Respuesta de emergencia",
+        detalle:
+          "Su especialidad principal es el control de incendios estructurales en zonas urbanas y fuegos forestales en las faldas del volcán.",
+      },
+      {
+        id: "5",
+        nombre: "Hospital Militar",
+        tipo: "Centro hospitalario",
+        detalle:
+          "Se enfocan en servicios quirúrgicos especializados y atención de emergencia bajo protocolos de disciplina y eficiencia militar.",
+      },
+      {
+        id: "6",
+        nombre: "Hospital Regional San Juan de Dios",
+        tipo: "Centro hospitalario",
+        detalle:
+          "Es el centro de referencia para medicina de tercer nivel, especializándose en nefrología, cardiología y cuidados intensivos neonatales.",
+      },
+      {
+        id: "7",
+        nombre: "Hospital San Francisco",
+        tipo: "Centro hospitalario",
+        detalle:
+          "se especializa en servicios de emergencia 24/7, cirugía, medicina interna, ginecología, pediatría, laboratorio clínico y atención de máxima urgencia.",
+      },
     ],
   },
   usulutan: {
