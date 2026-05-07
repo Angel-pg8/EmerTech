@@ -43,6 +43,19 @@ function Navbar({ isChatOpen, onToggleChat }) {
           <span className="text-[11px] font-black leading-tight">Emergencias</span>
         </Link>
 
+        <a
+          href="tel:911"
+          className="flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center text-white/80"
+          aria-label="Llamar a emergencias"
+        >
+          <img
+            src={sosIcono}
+            alt=""
+            className="h-10 w-10 object-contain drop-shadow-lg"
+            aria-hidden="true"
+          />
+          <span className="text-[11px] font-black leading-tight">SOS</span>
+        </a>
         <Link
           to="/organizaciones"
           className={`flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center ${
@@ -59,20 +72,6 @@ function Navbar({ isChatOpen, onToggleChat }) {
             Organizaciones
           </span>
         </Link>
-
-        <a
-          href="tel:911"
-          className="flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center text-white/80"
-          aria-label="Llamar a emergencias"
-        >
-          <img
-            src={sosIcono}
-            alt=""
-            className="h-10 w-10 object-contain drop-shadow-lg"
-            aria-hidden="true"
-          />
-          <span className="text-[11px] font-black leading-tight">SOS</span>
-        </a>
 
         <button
           type="button"
