@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
-import GoogleMapEmbed from "../components/GoogleMapEmbed"
+import OpenStreetMapEmbed from "../components/OpenStreetMapEmbed"
 import organizacionesIcono from "../assets/organizaciones_icono.png"
 import { obtenerOrganizacion, obtenerZona } from "../data/organizaciones"
 
@@ -75,7 +75,7 @@ function OrganizacionDetalle() {
             <h2 className="mb-3 text-lg font-bold text-[#0d1120]">
               Ubicacion
             </h2>
-            <GoogleMapEmbed
+            <OpenStreetMapEmbed
               query={mapsQuery}
               title={`Mapa de ${organizacion.nombre}`}
             />
