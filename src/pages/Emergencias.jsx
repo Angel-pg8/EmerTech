@@ -175,20 +175,20 @@ export default function Emergencias() {
 
   return (
     <div
-      className="relative flex min-h-screen flex-col items-center overflow-hidden px-6 pt-10 pb-24"
+      className="relative flex min-h-0 flex-col items-center overflow-hidden px-6 pt-5 pb-20"
       style={{ backgroundColor: "#0d1120" }}
     >
       
-        <img src={Logo} alt="Logo" className="h-62 w-62 object-contain" />
+        <img src={Logo} alt="Logo" className="h-28 w-28 object-contain" />
       
 
-      <h1 className="mb-6 text-center text-3xl font-bold text-white">
+      <h1 className="mb-4 text-center text-2xl font-bold text-white">
         <span style={{ color: "#3EB9BC" }}>Selecciona</span> una categoria
       </h1>
 
       {/* BARRA DE BUSQUEDA */}
       <div
-        className="mb-6 flex w-full max-w-sm items-center gap-2 rounded-xl px-3 py-2"
+        className="mb-4 flex w-full max-w-sm items-center gap-2 rounded-xl px-3 py-2"
         style={{ backgroundColor: "#1a2236" }}
       >
         <svg
@@ -250,7 +250,6 @@ export default function Emergencias() {
                     <p className={`mt-1 text-[10px] font-bold ${e.color}`}>
                       {e.nivel}
                     </p>
-                    <p className="mt-0.5 text-[10px] text-gray-400">{e.tipo}</p>
                   </div>
                 </div>
               ))}
@@ -259,7 +258,7 @@ export default function Emergencias() {
         </div>
       ) : (
         /* CATEGORIAS NORMALES */
-        <div className="flex w-full max-w-sm flex-col gap-4">
+        <div className="flex w-full max-w-sm flex-col gap-3">
           {categorias.map((categoria) => (
             <button
               key={categoria.id}
@@ -267,18 +266,18 @@ export default function Emergencias() {
               className="relative flex w-full items-center overflow-hidden rounded-3xl bg-white text-left shadow-md transition-transform duration-150 active:scale-95"
             >
               <div className={`w-2 self-stretch shrink-0 ${categoria.barColor}`} />
-              <div className="flex flex-1 items-center gap-4 px-5 py-5">
+              <div className="flex flex-1 items-center gap-4 px-5 py-4">
                 <img
                   src={categoria.icono}
                   alt=""
-                  className="relative h-16 w-16 shrink-0 object-contain"
+                  className="relative h-14 w-14 shrink-0 object-contain"
                   aria-hidden="true"
                 />
                 <div className="relative flex-1">
-                  <p className={`text-xl font-black tracking-wide ${categoria.color}`}>
+                  <p className={`text-lg font-black tracking-wide ${categoria.color}`}>
                     {categoria.nivel}
                   </p>
-                  <p className="mt-1 text-base font-bold text-gray-700">
+                  <p className="mt-1 text-sm font-bold text-gray-700">
                     {categoria.descripcion}
                   </p>
                 </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from "react-router-dom"
 import ChatWidget from "./components/ChatWidget"
 import GoogleAdBanner from "./components/GoogleAdBanner"
 import Navbar from "./components/Navbar"
@@ -13,6 +13,29 @@ import EmergenciaDetalleMuyGrave from "./pages/EmergenciaDetalleMuyGrave"
 import Organizaciones from "./pages/Organizaciones"
 import OrganizacionDetalle from "./pages/OrganizacionDetalle"
 import OrganizacionesLista from "./pages/OrganizacionesLista"
+
+function AppRoutes() {
+  const location = useLocation()
+
+  return (
+    <div key={location.pathname} className="screen-transition">
+      <Routes location={location}>
+        <Route path="/" element={<Emergencias />} />
+        <Route path="/emergencias" element={<Emergencias />} />
+        <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
+        <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
+        <Route path="/emergencias/grave/:id" element={<EmergenciaDetalleGrave />} />
+        <Route path="/emergencias/muygraves" element={<EmergenciasMuyGrave />} />
+        <Route path="/emergencias/muygraves/:id" element={<EmergenciaDetalleMuyGrave />} />
+        <Route path="/emergencias/grave" element={<EmergenciasGrave />} />
+        <Route path="/organizaciones" element={<Organizaciones />} />
+        <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
+        <Route path="/organizaciones/:zona/:id" element={<OrganizacionDetalle />} />
+        <Route path="/chat" element={<Navigate to="/" replace />} />
+      </Routes>
+    </div>
+  )
+}
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false)
@@ -29,25 +52,12 @@ function App() {
   if (isMobile) {
     return (
       <BrowserRouter>
-        <div className="relative flex min-h-screen flex-col bg-[#0a0e1a]">
-          <div className="flex-1 overflow-y-auto pb-16 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
+        <div className="relative flex h-screen min-h-screen flex-col bg-[#0a0e1a]">
+          <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
             <GoogleAdBanner />
-            <Routes>
-              <Route path="/" element={<Emergencias />} />
-              <Route path="/emergencias" element={<Emergencias />} />
-              <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
-              <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
-              <Route path="/emergencias/grave/:id" element={<EmergenciaDetalleGrave />} />
-              <Route path="/emergencias/muygraves" element={<EmergenciasMuyGrave />} />
-              <Route path="/emergencias/muygraves/:id" element={<EmergenciaDetalleMuyGrave />} />
-              <Route path="/emergencias/grave" element={<EmergenciasGrave />} />
-              <Route path="/organizaciones" element={<Organizaciones />} />
-              <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
-              <Route path="/organizaciones/:zona/:id" element={<OrganizacionDetalle />} />
-              <Route path="/chat" element={<Navigate to="/" replace />} />
-            </Routes>
-            <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+            <AppRoutes />
           </div>
+          <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
           <div className="fixed bottom-0 left-0 right-0 z-50">
             <Navbar
               isChatOpen={isChatOpen}
@@ -89,24 +99,11 @@ function App() {
 
           {/* Contenido */}
           <div className="relative flex flex-col overflow-hidden" style={{ height: "calc(844px - 60px)" }}>
-            <div className="flex-1 overflow-y-auto pb-16 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
+            <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
               <GoogleAdBanner />
-              <Routes>
-                <Route path="/" element={<Emergencias />} />
-                <Route path="/emergencias" element={<Emergencias />} />
-                <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
-                <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
-                <Route path="/emergencias/grave/:id" element={<EmergenciaDetalleGrave />} />
-                <Route path="/emergencias/muygraves" element={<EmergenciasMuyGrave />} />
-                <Route path="/emergencias/muygraves/:id" element={<EmergenciaDetalleMuyGrave />} />
-                <Route path="/emergencias/grave" element={<EmergenciasGrave />} />
-                <Route path="/organizaciones" element={<Organizaciones />} />
-                <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
-                <Route path="/organizaciones/:zona/:id" element={<OrganizacionDetalle />} />
-                <Route path="/chat" element={<Navigate to="/" replace />} />
-              </Routes>
-              <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+              <AppRoutes />
             </div>
+            <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
             <div className="absolute bottom-0 left-0 right-0 z-50">
               <Navbar

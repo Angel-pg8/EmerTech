@@ -1,19 +1,22 @@
 import { useEffect, useRef, useState } from "react"
 
-const OSM_ATTRIBUTION = '\u00a9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+const OSM_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 
-function OpenStreetMapEmbed({ query, title = "Ubicación en el mapa" }) {
+function OpenStreetMapEmbed({ query, coordinates, title = "Ubicación en el mapa" }) {
   const mapRef = useRef(null)
   const mapInstanceRef = useRef(null)
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
-  const osmUrl = `https://www.openstreetmap.org/search?query=${encodeURIComponent(query)}`
 
   useEffect(() => {
     let cancelled = false
 
     const init = async () => {
       try {
+        setError(false)
+        setLoading(true)
+
         if (!window.L) {
           const link = document.createElement("link")
           link.rel = "stylesheet"
@@ -29,26 +32,41 @@ function OpenStreetMapEmbed({ query, title = "Ubicación en el mapa" }) {
           })
         }
 
-        const res = await fetch(
-          `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=1`,
-          { headers: { "Accept-Language": "es" } }
-        )
-        const data = await res.json()
+        let lat = coordinates?.lat
+        let lon = coordinates?.lon
+        let displayName = query
 
-        if (cancelled) return
-        if (!data.length) { setError(true); setLoading(false); return }
+        if (lat === undefined || lon === undefined) {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=1`,
+            { headers: { "Accept-Language": "es" } },
+          )
+          const data = await res.json()
 
-        const { lat, lon, display_name } = data[0]
+          if (cancelled) return
+          if (!data.length) {
+            setError(true)
+            setLoading(false)
+            return
+          }
 
-        if (!mapRef.current) return
+          lat = data[0].lat
+          lon = data[0].lon
+          displayName = data[0].display_name
+        }
+
+        if (cancelled || !mapRef.current) return
+
         if (mapInstanceRef.current) {
           mapInstanceRef.current.remove()
           mapInstanceRef.current = null
         }
 
+        const numericLat = parseFloat(lat)
+        const numericLon = parseFloat(lon)
         const map = window.L.map(mapRef.current, { zoomControl: true }).setView(
-          [parseFloat(lat), parseFloat(lon)],
-          15
+          [numericLat, numericLon],
+          15,
         )
         mapInstanceRef.current = map
 
@@ -57,14 +75,17 @@ function OpenStreetMapEmbed({ query, title = "Ubicación en el mapa" }) {
           maxZoom: 19,
         }).addTo(map)
 
-        window.L.marker([parseFloat(lat), parseFloat(lon)])
+        window.L.marker([numericLat, numericLon])
           .addTo(map)
-          .bindPopup(display_name)
+          .bindPopup(displayName)
           .openPopup()
 
         setLoading(false)
-      } catch (e) {
-        if (!cancelled) { setError(true); setLoading(false) }
+      } catch {
+        if (!cancelled) {
+          setError(true)
+          setLoading(false)
+        }
       }
     }
 
@@ -77,17 +98,26 @@ function OpenStreetMapEmbed({ query, title = "Ubicación en el mapa" }) {
         mapInstanceRef.current = null
       }
     }
-  }, [query])
+  }, [query, coordinates])
 
   return (
-<div className="overflow-hidden rounded-2xl bg-gray-100" style={{ position: "relative", zIndex: 0 }}>
+    <div
+      className="overflow-hidden rounded-2xl bg-gray-100"
+      style={{ position: "relative", zIndex: 0 }}
+    >
       <div style={{ height: "224px", width: "100%", position: "relative" }}>
         {loading && !error && (
           <div
             style={{
-              position: "absolute", inset: 0, zIndex: 10,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              background: "#eaf8fb", fontSize: "13px", color: "#0d6e7a",
+              position: "absolute",
+              inset: 0,
+              zIndex: 10,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "#eaf8fb",
+              fontSize: "13px",
+              color: "#0d6e7a",
             }}
           >
             Cargando mapa...
@@ -96,9 +126,15 @@ function OpenStreetMapEmbed({ query, title = "Ubicación en el mapa" }) {
         {error && (
           <div
             style={{
-              position: "absolute", inset: 0, zIndex: 10,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              background: "#eaf8fb", fontSize: "13px", color: "#666",
+              position: "absolute",
+              inset: 0,
+              zIndex: 10,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "#eaf8fb",
+              fontSize: "13px",
+              color: "#666",
             }}
           >
             No se pudo cargar el mapa
@@ -106,7 +142,6 @@ function OpenStreetMapEmbed({ query, title = "Ubicación en el mapa" }) {
         )}
         <div ref={mapRef} style={{ height: "100%", width: "100%" }} title={title} />
       </div>
-      
     </div>
   )
 }

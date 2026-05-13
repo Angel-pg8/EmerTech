@@ -67,8 +67,8 @@ function ChatWidget({ isOpen, onClose }) {
   }
 
   return (
-    <section className="fixed inset-x-0 bottom-24 z-40 mx-auto w-full max-w-md px-4">
-      <div className="flex h-[min(68vh,620px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#12182b] text-white shadow-[0_28px_70px_rgba(0,0,0,0.45)]">
+    <section className="absolute inset-x-3 bottom-20 z-40 mx-auto">
+      <div className="flex h-[min(62vh,540px)] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#12182b] text-white shadow-[0_28px_70px_rgba(0,0,0,0.45)]">
         <header className="flex items-center justify-between border-b border-white/10 bg-[#171f35] px-4 py-3">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#3eb9bc] text-sm font-black text-[#0d1120]">

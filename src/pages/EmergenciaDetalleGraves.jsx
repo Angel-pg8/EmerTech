@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../firebase"
+import BackButton from "../components/BackButton"
 
 import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
 import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
@@ -61,13 +62,8 @@ function EmergenciaDetalleGrave() {
 
   if (!emergencia) {
     return (
-      <main className="min-h-screen bg-[#0d1120] px-4 py-8 pb-24 text-white">
-        <button
-          onClick={() => navigate(-1)}
-          className="mb-6 rounded-full bg-white/10 px-4 py-2 text-sm"
-        >
-          Regresar
-        </button>
+      <main className="min-h-screen bg-[#0d1120] px-4 py-8 pb-20 text-white">
+        <BackButton onClick={() => navigate(-1)} className="mb-6" />
         <div className="rounded-3xl bg-white/10 p-6 text-center">
           <h1 className="text-2xl font-bold">Emergencia no encontrada</h1>
         </div>
@@ -80,7 +76,7 @@ function EmergenciaDetalleGrave() {
   const imagenPasos = imagenesPasos[nombreEmergencia] || null
 
   return (
-    <main className="min-h-screen bg-[#0d1120] pb-24 text-white">
+    <main className="min-h-screen bg-white pb-20 text-white">
 
       {/* Imagen header con botón volver encima */}
       <div className="relative">
@@ -91,18 +87,11 @@ function EmergenciaDetalleGrave() {
             className="h-48 w-full object-cover"
           />
         )}
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/80 shadow"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
+        <BackButton onClick={() => navigate(-1)} className="absolute left-4 top-4" />
       </div>
 
       {/* Contenido */}
-      <div className="rounded-t-[28px] bg-white -mt-4 relative text-gray-900 px-5 pt-6 pb-10 min-h-screen">
+      <div className="rounded-t-[28px] bg-white -mt-4 relative text-gray-900 px-5 pt-6 pb-8 min-h-[calc(100vh-12rem)]">
 
         {/* Nombre y tipo */}
         <p className="text-sm text-gray-400 font-semibold">

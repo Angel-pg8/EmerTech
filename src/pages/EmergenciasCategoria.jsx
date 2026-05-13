@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import BackButton from "../components/BackButton"
 import { obtenerCategoriaEmergencias } from "../data/emergencias"
 
 function EmergenciasCategoria() {
@@ -26,17 +27,12 @@ function EmergenciasCategoria() {
 
   if (!datosCategoria) {
     return (
-      <main className="min-h-screen bg-[#0d1120] px-4 py-8 pb-24 text-white">
-        <button
-          onClick={() => navigate("/emergencias")}
-          className="mb-6 rounded-full bg-white/10 px-4 py-2 text-sm"
-        >
-          Regresar
-        </button>
+      <main className="min-h-screen bg-[#0d1120] px-4 py-8 pb-20 text-white">
+        <BackButton onClick={() => navigate("/emergencias")} className="mb-6" />
         <section className="rounded-[28px] bg-white p-6 text-gray-900 shadow-xl">
           <h1 className="text-2xl font-black">Categoria no encontrada</h1>
           <p className="mt-3 text-sm leading-6 text-gray-600">
-            Esta categoria no existe en el flujo actual de la aplicacion.
+            No hay informacion disponible para esta categoria.
           </p>
         </section>
       </main>
@@ -44,25 +40,10 @@ function EmergenciasCategoria() {
   }
 
   return (
-    <div className="min-h-screen pb-24" style={{ backgroundColor: "#0d1120" }}>
+    <div className="min-h-screen pb-20" style={{ backgroundColor: "#0d1120" }}>
       <div className="bg-[#1e3a8a] px-4 pt-4 pb-3">
         <div className="mb-3 flex items-center gap-3">
-          <button onClick={() => navigate("/emergencias")} className="text-white">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+          <BackButton onClick={() => navigate("/emergencias")} className="shrink-0" />
           <h1 className="text-2xl font-black text-white">{datosCategoria.titulo}</h1>
         </div>
 
@@ -112,7 +93,6 @@ function EmergenciasCategoria() {
                 <p className="text-sm font-bold leading-tight text-gray-800">
                   {emergencia.nombre}
                 </p>
-                <p className="mt-1 text-xs text-gray-400">{emergencia.tipo}</p>
               </div>
             </div>
           ))

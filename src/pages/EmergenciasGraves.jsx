@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/loguito.png"
+import BackButton from "../components/BackButton"
 import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
 import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
 import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
@@ -44,17 +45,13 @@ export default function EmergenciasGrave() {
   )
 
   return (
-    <div className="min-h-screen pb-24" style={{ backgroundColor: "#0d1120" }}>
+    <div className="min-h-screen pb-20" style={{ backgroundColor: "#0d1120" }}>
 
       {/* HEADER */}
       <div style={{ backgroundColor: "#0d1120" }} className="px-4 pt-6 pb-4">
         <div className="mb-4 flex items-center gap-3">
-          <img
-            src={Logo}
-            alt="Logo"
-            className="h-10 w-10 object-contain cursor-pointer"
-            onClick={() => navigate(-1)}
-          />
+          <BackButton onClick={() => navigate(-1)} className="shrink-0" />
+          <img src={Logo} alt="Logo" className="h-10 w-10 object-contain" />
           <h1 className="text-2xl font-black text-white leading-tight">
             Más información sobre{" "}
             <span style={{ color: "#3EB9BC" }}>emergencias graves:</span>
@@ -116,7 +113,6 @@ export default function EmergenciasGrave() {
                 <p className="text-xs font-bold leading-snug text-gray-800">
                   {emergencia.nombre}
                 </p>
-                <p className="mt-1 text-[10px] text-gray-400">{emergencia.tipo}</p>
               </div>
             </div>
           ))
