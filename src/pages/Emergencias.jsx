@@ -179,7 +179,7 @@ export default function Emergencias() {
       style={{ backgroundColor: "#0d1120" }}
     >
       
-        <img src={Logo} alt="Logo" className="h-28 w-28 object-contain" />
+        <img src={Logo} alt="Logo" className="h-62 w-62 object-contain" />
       
 
       <h1 className="mb-4 text-center text-2xl font-bold text-white">
