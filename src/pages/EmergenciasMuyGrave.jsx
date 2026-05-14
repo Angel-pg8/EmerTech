@@ -43,13 +43,12 @@ export default function EmergenciasMuyGrave() {
   )
 
   return (
-    <div className="min-h-screen pb-20" style={{ backgroundColor: "#0d1120" }}>
+    <div className="min-h-screen pb-40" style={{ backgroundColor: "#0d1120" }}>
 
       {/* HEADER */}
       <div style={{ backgroundColor: "#0d1120" }} className="px-4 pt-6 pb-4">
         <div className="mb-4 flex items-center gap-3">
           <BackButton onClick={() => navigate(-1)} className="shrink-0" />
-          <img src={Logo} alt="Logo" className="h-10 w-10 object-contain" />
           <h1 className="text-2xl font-black text-white leading-tight">
             Más información sobre{" "}
             <span style={{ color: "#3EB9BC" }}>emergencias muy graves:</span>
