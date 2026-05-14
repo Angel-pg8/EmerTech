@@ -10,9 +10,9 @@ import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emerge
 import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/intoxicacionleve-LEVE.png"
 
 // Imágenes de pasos
-import pasosDeshidratacion from "../assets/Emergencias/Leves/deshidratacion_pasos.jpeg"
-import pasosDolorCabeza from "../assets/Emergencias/Leves/dolor_cabeza_pasos.jpeg"
-import pasosDolorOido from "../assets/Emergencias/Leves/dolor_oido_pasos.jpeg"
+import pasosDeshidratacion from "../assets/Emergencias/Leves/deshidratacion_pasos.png"
+import pasosDolorCabeza from "../assets/Emergencias/Leves/dolor_cabeza_pasos.png"
+import pasosDolorOido from "../assets/Emergencias/Leves/dolor_oido_pasos.png"
 import pasosIntoxicacion from "../assets/Emergencias/Leves/intoxicacon_leve_pasos.jpeg"
 
 const imagenesLocales = {
