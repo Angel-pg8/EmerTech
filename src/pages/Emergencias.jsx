@@ -47,12 +47,10 @@ const categorias = [
   },
 ]
 
-// Todas las emergencias de las 3 categorías juntas
 const todasLasEmergencias = [
   {
     id: "Dolor de oido",
     nombre: "Dolor de oído",
-    tipo: "Otológica",
     imagen: imgDolorOido,
     ruta: "/emergencias/leve/Dolor de oido",
     nivel: "LEVE",
@@ -61,7 +59,6 @@ const todasLasEmergencias = [
   {
     id: "Dolor de cabeza",
     nombre: "Dolor de cabeza",
-    tipo: "Neurológica",
     imagen: imgDolorCabeza,
     ruta: "/emergencias/leve/Dolor de cabeza",
     nivel: "LEVE",
@@ -70,7 +67,6 @@ const todasLasEmergencias = [
   {
     id: "Deshidratacion",
     nombre: "Deshidratación",
-    tipo: "Metabólica",
     imagen: imgDeshidratacion,
     ruta: "/emergencias/leve/Deshidratacion",
     nivel: "LEVE",
@@ -79,7 +75,6 @@ const todasLasEmergencias = [
   {
     id: "Intoxicacion leve",
     nombre: "Intoxicación leve",
-    tipo: "Toxicológica",
     imagen: imgIntoxicacionLeve,
     ruta: "/emergencias/leve/Intoxicacion leve",
     nivel: "LEVE",
@@ -88,7 +83,6 @@ const todasLasEmergencias = [
   {
     id: "Convulcion leve",
     nombre: "Convulsión",
-    tipo: "Sanitaria",
     imagen: imgConvulsionGrave,
     ruta: "/emergencias/grave/Convulción leve",
     nivel: "GRAVE",
@@ -97,7 +91,6 @@ const todasLasEmergencias = [
   {
     id: "Fractura de brazo",
     nombre: "Fractura de brazo",
-    tipo: "Lesión física",
     imagen: imgFractura,
     ruta: "/emergencias/grave/Fractura de brazo",
     nivel: "GRAVE",
@@ -106,7 +99,6 @@ const todasLasEmergencias = [
   {
     id: "intoxicacion alimentaria",
     nombre: "Intoxicación alimentaria",
-    tipo: "Sanitaria",
     imagen: imgIntoxicacionAlimentaria,
     ruta: "/emergencias/grave/intoxicacion alimentaria",
     nivel: "GRAVE",
@@ -115,7 +107,6 @@ const todasLasEmergencias = [
   {
     id: "Mordedura de animal",
     nombre: "Mordida de animal",
-    tipo: "Lesión física",
     imagen: imgMordida,
     ruta: "/emergencias/grave/Mordedura de animal",
     nivel: "GRAVE",
@@ -124,7 +115,6 @@ const todasLasEmergencias = [
   {
     id: "Convulsion",
     nombre: "Convulsión severa",
-    tipo: "Sanitaria",
     imagen: imgConvulsionMuyGrave,
     ruta: "/emergencias/muygraves/Convulsion",
     nivel: "MUY GRAVE",
@@ -133,7 +123,6 @@ const todasLasEmergencias = [
   {
     id: "Dolor-en-el-pecho",
     nombre: "Dolor de pecho",
-    tipo: "Sanitaria",
     imagen: imgDolorPecho,
     ruta: "/emergencias/muygraves/Dolor-en-el-pecho",
     nivel: "MUY GRAVE",
@@ -142,7 +131,6 @@ const todasLasEmergencias = [
   {
     id: "Fiebre-alta-persistente",
     nombre: "Fiebre alta persistente",
-    tipo: "Sanitaria",
     imagen: imgFiebre,
     ruta: "/emergencias/muygraves/Fiebre-alta-persistente",
     nivel: "MUY GRAVE",
@@ -151,7 +139,6 @@ const todasLasEmergencias = [
   {
     id: "Hipoglucemia",
     nombre: "Hipoglucemia",
-    tipo: "Metabólica",
     imagen: imgBajoAzucar,
     ruta: "/emergencias/muygraves/Hipoglucemia",
     nivel: "MUY GRAVE",
@@ -164,10 +151,8 @@ export default function Emergencias() {
   const [busqueda, setBusqueda] = useState("")
 
   const resultados = busqueda.trim()
-    ? todasLasEmergencias.filter(
-        (e) =>
-          e.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-          e.tipo.toLowerCase().includes(busqueda.toLowerCase()),
+    ? todasLasEmergencias.filter((e) =>
+        e.nombre.toLowerCase().includes(busqueda.toLowerCase())
       )
     : []
 
@@ -175,12 +160,10 @@ export default function Emergencias() {
 
   return (
     <div
-      className="relative flex min-h-0 flex-col items-center overflow-hidden px-6 pt-5 pb-20"
+      className="relative flex min-h-0 flex-col items-center overflow-hidden px-6 pt-5 pb-40"
       style={{ backgroundColor: "#0d1120" }}
     >
-      
-        <img src={Logo} alt="Logo" className="h-62 w-62 object-contain" />
-      
+      <img src={Logo} alt="Logo" className="h-62 w-62 object-contain" />
 
       <h1 className="mb-4 text-center text-2xl font-bold text-white">
         <span style={{ color: "#3EB9BC" }}>Selecciona</span> una categoria
@@ -208,7 +191,7 @@ export default function Emergencias() {
         </svg>
         <input
           type="text"
-          placeholder="Buscar en todas las emergencias..."
+          placeholder="¿Qué emergencia estás viviendo ahora?"
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/40"
@@ -218,7 +201,7 @@ export default function Emergencias() {
             onClick={() => setBusqueda("")}
             className="text-white/40 text-lg leading-none"
           >
-            x
+            ×
           </button>
         )}
       </div>
@@ -258,7 +241,7 @@ export default function Emergencias() {
         </div>
       ) : (
         /* CATEGORIAS NORMALES */
-        <div className="flex w-full max-w-sm flex-col gap-3">
+         <div className="flex w-full max-w-lg flex-col gap-4">
           {categorias.map((categoria) => (
             <button
               key={categoria.id}
@@ -266,7 +249,7 @@ export default function Emergencias() {
               className="relative flex w-full items-center overflow-hidden rounded-3xl bg-white text-left shadow-md transition-transform duration-150 active:scale-95"
             >
               <div className={`w-2 self-stretch shrink-0 ${categoria.barColor}`} />
-              <div className="flex flex-1 items-center gap-4 px-5 py-4">
+              <div className="flex flex-1 items-center gap-4 px-6 py-7">
                 <img
                   src={categoria.icono}
                   alt=""

@@ -11,25 +11,21 @@ const emergencias = [
   {
     id: "Convulción leve",
     nombre: "Convulsión",
-    tipo: "Sanitaria",
     imagen: imgConvulsion,
   },
   {
     id: "Fractura de brazo",
     nombre: "Fractura de brazo",
-    tipo: "Lesión fisica",
     imagen: imgFractura,
   },
   {
-  id: "intoxicacion alimentaria",
-  nombre: "Intoxicación alimentaria",
-  tipo: "Sanitaria",
-  imagen: imgIntoxicacion,
+    id: "intoxicacion alimentaria",
+    nombre: "Intoxicación alimentaria",
+    imagen: imgIntoxicacion,
   },
   {
     id: "Mordedura de animal",
     nombre: "Mordida de animal",
-    tipo: "Lesión física",
     imagen: imgMordida,
   },
 ]
@@ -38,10 +34,8 @@ export default function EmergenciasGrave() {
   const navigate = useNavigate()
   const [busqueda, setBusqueda] = useState("")
 
-  const filtradas = emergencias.filter(
-    (emergencia) =>
-      emergencia.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-      emergencia.tipo.toLowerCase().includes(busqueda.toLowerCase()),
+  const filtradas = emergencias.filter((emergencia) =>
+    emergencia.nombre.toLowerCase().includes(busqueda.toLowerCase())
   )
 
   return (
@@ -101,14 +95,11 @@ export default function EmergenciasGrave() {
               onClick={() => navigate(`/emergencias/grave/${emergencia.id}`)}
               className="overflow-hidden rounded-2xl bg-white shadow-md transition-transform active:scale-95 cursor-pointer"
             >
-              {/* Imagen */}
               <img
                 src={emergencia.imagen}
                 alt={emergencia.nombre}
                 className="w-full h-28 object-cover"
               />
-
-              {/* Texto */}
               <div className="p-3">
                 <p className="text-xs font-bold leading-snug text-gray-800">
                   {emergencia.nombre}

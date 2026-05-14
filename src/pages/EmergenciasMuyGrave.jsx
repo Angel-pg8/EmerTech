@@ -2,37 +2,34 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/loguito.png"
 import BackButton from "../components/BackButton"
-import imgBajoAzucar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/bajoazucar-MUYGRAVE.png";
-import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/convulsionsevera-MUYGRAVE.png";
-import imgDolorPecho from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/dolorenelpecho-MUYGRAVE.png";
-import imgFiebre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fiebrealta-MUYGRAVE.png";
+import imgBajoAzucar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/bajoazucar-MUYGRAVE.png"
+import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/convulsionsevera-MUYGRAVE.png"
+import imgDolorPecho from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/dolorenelpecho-MUYGRAVE.png"
+import imgFiebre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fiebrealta-MUYGRAVE.png"
+
 const emergencias = [
   {
     id: "Convulsion",
     docId: "Convulsión",
     nombre: "Convulsión",
-    tipo: "Sanitaria",
     imagen: imgConvulsion,
   },
   {
     id: "Dolor-en-el-pecho",
     docId: "Dolor en el pecho",
     nombre: "Dolor de pecho",
-    tipo: "Sanitaria",
     imagen: imgDolorPecho,
   },
   {
     id: "Fiebre-alta-persistente",
     docId: "Fiebre alta persistente",
     nombre: "Fiebre alta persistente",
-    tipo: "Sanitaria",
     imagen: imgFiebre,
   },
   {
     id: "Hipoglucemia",
     docId: "Hipoglucemia",
     nombre: "Hipoglucemia",
-    tipo: "Metabólica",
     imagen: imgBajoAzucar,
   },
 ]
@@ -41,10 +38,8 @@ export default function EmergenciasMuyGrave() {
   const navigate = useNavigate()
   const [busqueda, setBusqueda] = useState("")
 
-  const filtradas = emergencias.filter(
-    (emergencia) =>
-      emergencia.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-      emergencia.tipo.toLowerCase().includes(busqueda.toLowerCase()),
+  const filtradas = emergencias.filter((emergencia) =>
+    emergencia.nombre.toLowerCase().includes(busqueda.toLowerCase())
   )
 
   return (

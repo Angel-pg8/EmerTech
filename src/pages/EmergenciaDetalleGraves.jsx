@@ -94,9 +94,6 @@ function EmergenciaDetalleGrave() {
       <div className="rounded-t-[28px] bg-white -mt-4 relative text-gray-900 px-5 pt-6 pb-8 min-h-[calc(100vh-12rem)]">
 
         {/* Nombre y tipo */}
-        <p className="text-sm text-gray-400 font-semibold">
-          {emergencia["Tipo de emergencia"]}
-        </p>
         <h1 className="mt-1 text-2xl font-black text-gray-900">
           {nombreEmergencia}
         </h1>
