@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import organizacionesIcono from "../assets/organizaciones_icono.png"
+import organizacionesIcono from "../assets/pin.png"
+import Logo from "../assets/loguito.png"
 import BackButton from "../components/BackButton"
 import { obtenerZona } from "../data/organizaciones"
 
@@ -9,45 +10,44 @@ function OrganizacionesLista() {
   const { zona } = useParams()
   const datosZona = obtenerZona(zona)
   const [busqueda, setBusqueda] = useState("")
+
   const organizacionesFiltradas =
     datosZona?.items.filter((organizacion) => {
-      const texto = [
-        organizacion.nombre,
-        organizacion.tipo,
-        organizacion.direccion,
-      ]
+      const texto = [organizacion.nombre, organizacion.tipo, organizacion.direccion]
         .join(" ")
         .toLowerCase()
-
       return texto.includes(busqueda.trim().toLowerCase())
     }) || []
 
   if (!datosZona) {
     return (
-      <main className="min-h-screen bg-[#0d1120] px-4 py-8 pb-20 text-white">
+      <main className="min-h-screen px-4 py-8 pb-20 text-white" style={{ backgroundColor: "#0d1120" }}>
         <BackButton onClick={() => navigate("/organizaciones")} className="mb-6" />
-        <section className="rounded-[28px] bg-white p-6 text-gray-900 shadow-xl">
-          <h1 className="text-2xl font-black">Zona no encontrada</h1>
-          <p className="mt-3 text-sm leading-6 text-gray-600">
-            No hay informacion disponible para esta zona.
-          </p>
-        </section>
+        <p className="text-white/60">No hay información disponible para esta zona.</p>
       </main>
     )
   }
 
   return (
-    <main className="min-h-screen bg-[#0d1120] px-4 py-6 pb-20 text-white">
-      <BackButton onClick={() => navigate("/organizaciones")} className="mb-5" />
+    <main className="min-h-screen px-4 py-6 pb-20 text-white" style={{ backgroundColor: "#0d1120" }}>
 
-      <header className="mb-4">
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#7ce9d8]">
-          Lista de organizaciones
-        </p>
-        <h1 className="mt-2 text-3xl font-black">{datosZona.nombre}</h1>
-        <p className="mt-3 text-sm leading-6 text-white/70">{datosZona.descripcion}</p>
-      </header>
+      {/* HEADER */}
+      <div className="mb-6 flex items-start gap-4">
+        <BackButton onClick={() => navigate("/organizaciones")} className="shrink-0 mt-1" />
+        <div className="flex items-start gap-3">
+          <img src={Logo} alt="Logo" className="h-12 w-12 object-contain shrink-0" />
+          <div>
+            <h1 className="text-2xl font-black uppercase tracking-wide text-white">
+              {datosZona.nombre}
+            </h1>
+            <p className="mt-1 text-xs text-white/60 leading-snug">
+              {datosZona.descripcion}
+            </p>
+          </div>
+        </div>
+      </div>
 
+      {/* BUSCADOR */}
       <div
         className="mb-5 flex items-center gap-2 rounded-xl px-3 py-2"
         style={{ backgroundColor: "#1a2236" }}
@@ -71,24 +71,24 @@ function OrganizacionesLista() {
           type="text"
           placeholder="Buscar organizacion..."
           value={busqueda}
-          onChange={(evento) => setBusqueda(evento.target.value)}
+          onChange={(e) => setBusqueda(e.target.value)}
           className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/40"
         />
-        {busqueda.trim() ? (
+        {busqueda.trim() && (
           <button
             type="button"
             onClick={() => setBusqueda("")}
             className="text-lg leading-none text-white/40"
-            aria-label="Limpiar busqueda"
           >
-            x
+            ×
           </button>
-        ) : null}
+        )}
       </div>
 
-      <section className="space-y-4">
+      {/* LISTA */}
+      <section className="flex flex-col gap-3">
         {organizacionesFiltradas.length === 0 ? (
-          <p className="rounded-2xl bg-white/10 px-4 py-5 text-center text-sm text-white/60">
+          <p className="text-center text-sm text-white/50 mt-6">
             No se encontraron organizaciones
           </p>
         ) : (
@@ -96,23 +96,31 @@ function OrganizacionesLista() {
             <button
               key={organizacion.id}
               onClick={() => navigate(`/organizaciones/${zona}/${organizacion.id}`)}
-              className="flex w-full items-center gap-4 rounded-[28px] bg-white px-5 py-5 text-left text-gray-900 shadow-xl transition-transform active:scale-95"
+              className="flex w-full items-center gap-4 rounded-full px-4 py-3 text-left transition-transform active:scale-95"
+              style={{ backgroundColor: "#1a2744" }}
             >
-              <img
-                src={organizacionesIcono}
-                alt=""
-                className="h-14 w-14 shrink-0 object-contain"
-                aria-hidden="true"
-              />
+              {/* Icono con fondo circular */}
+              <div
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+                style={{ backgroundColor: "#2a3f6f" }}
+              >
+                <img
+                  src={organizacionesIcono}
+                  alt=""
+                  className="h-24 w-24 object-contain"
+                  aria-hidden="true"
+                />
+              </div>
+
               <div className="flex-1">
-                <h2 className="text-lg font-black text-[#1e3a8a]">
+                <h2 className="text-sm font-black text-white leading-snug">
                   {organizacion.nombre}
                 </h2>
-                <p className="mt-1 text-sm font-semibold text-gray-600">
+                <p className="mt-0.5 text-xs text-white/50">
                   {organizacion.tipo}
                 </p>
               </div>
-              <span className="text-2xl font-bold text-[#0d1120]">&rsaquo;</span>
+              <span className="text-2xl font-bold text-white/40">&rsaquo;</span>
             </button>
           ))
         )}
