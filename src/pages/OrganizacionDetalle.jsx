@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom"
 import OpenStreetMapEmbed from "../components/OpenStreetMapEmbed"
 import organizacionesIcono from "../assets/organizaciones_icono.png"
+import pinIcono from "../assets/pin.png"
+import Logo from "../assets/loguito.png"
 import BackButton from "../components/BackButton"
 import { obtenerOrganizacion, obtenerZona } from "../data/organizaciones"
 
@@ -13,66 +15,54 @@ function OrganizacionDetalle() {
 
   if (!datosZona || !organizacion) {
     return (
-      <main className="min-h-screen bg-[#0d1120] px-4 py-8 pb-20 text-white">
+      <main className="min-h-screen px-4 py-8 pb-20 text-white" style={{ backgroundColor: "#0d1120" }}>
         <BackButton onClick={() => navigate("/organizaciones")} className="mb-6" />
-        <section className="rounded-[28px] bg-white p-6 text-gray-900 shadow-xl">
-          <h1 className="text-2xl font-black">Organizacion no encontrada</h1>
-          <p className="mt-3 text-sm leading-6 text-gray-600">
-            Esta organizacion todavia no tiene informacion disponible.
-          </p>
-        </section>
+        <p className="text-white/60">Esta organización todavía no tiene información disponible.</p>
       </main>
     )
   }
 
   return (
-    <main className="min-h-screen bg-[#0d1120] px-4 py-6 pb-20 text-white">
-      <BackButton onClick={() => navigate(`/organizaciones/${zona}`)} className="mb-5" />
+    <main className="min-h-screen px-4 py-6 pb-20 text-white" style={{ backgroundColor: "#0d1120" }}>
 
-      <article className="overflow-hidden rounded-[28px] bg-white text-gray-900 shadow-xl">
-        <div className="flex items-center justify-center bg-[#eaf8fb] px-6 py-8">
-          <img
-            src={organizacionesIcono}
-            alt=""
-            className="h-28 w-28 object-contain"
-            aria-hidden="true"
-          />
-        </div>
-
-        <div className="space-y-4 p-5">
+      {/* HEADER */}
+      <div className="mb-6 flex items-start gap-3">
+        <BackButton onClick={() => navigate(`/organizaciones/${zona}`)} className="shrink-0 mt-1" />
+        <div className="flex items-start gap-3">
+          <img src={Logo} alt="Logo" className="h-12 w-12 object-contain shrink-0" />
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-[#0d6e7a]">
-              {datosZona.nombre}
-            </p>
-            <h1 className="mt-1 text-2xl font-black">{organizacion.nombre}</h1>
-            <p className="mt-2 text-sm font-semibold text-gray-500">
-              {organizacion.tipo}
-            </p>
+            <h1 className="text-xl font-black text-white leading-tight">
+              {organizacion.nombre}
+            </h1>
+            <p className="text-xs text-white/50 mt-0.5">{organizacion.tipo}</p>
           </div>
-
-          <p className="text-sm leading-6 text-gray-700">{organizacion.detalle}</p>
-
-          <section className="rounded-2xl bg-[#eef6ff] p-4">
-            <h2 className="text-lg font-bold text-[#0d1120]">
-              Direccion
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-gray-700">
-              {organizacion.direccion || "Direccion no disponible"}
-            </p>
-          </section>
-
-          <section className="rounded-2xl bg-[#eef6ff] p-4">
-            <h2 className="mb-3 text-lg font-bold text-[#0d1120]">
-              Ubicacion
-            </h2>
-            <OpenStreetMapEmbed
-              query={mapsQuery}
-              coordinates={organizacion.coordenadas}
-              title={`Mapa de ${organizacion.nombre}`}
-            />
-          </section>
         </div>
-      </article>
+      </div>
+
+      {/* MAPA */}
+      <div className="mb-4 overflow-hidden rounded-3xl" style={{ backgroundColor: "#1a2744" }}>
+        <OpenStreetMapEmbed
+          query={mapsQuery}
+          coordinates={organizacion.coordenadas}
+          title={`Mapa de ${organizacion.nombre}`}
+        />
+      </div>
+
+      {/* DIRECCIÓN */}
+      <button
+        className="mb-3 flex w-full items-center gap-4 rounded-full px-4 py-4 text-left transition-transform active:scale-95"
+        style={{ backgroundColor: "#1a2744" }}
+      >
+        <div
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+          style={{ backgroundColor: "#2a3f6f" }}
+        >
+          <img src={pinIcono} alt="" className="h-24 w-24 object-contain" />
+        </div>
+        <p className="text-sm font-bold text-white">
+          {organizacion.direccion || "Dirección no disponible"}
+        </p>
+      </button>
     </main>
   )
 }
