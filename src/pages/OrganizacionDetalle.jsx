@@ -53,12 +53,9 @@ function OrganizacionDetalle() {
         className="mb-3 flex w-full items-center gap-4 rounded-full px-4 py-4 text-left transition-transform active:scale-95"
         style={{ backgroundColor: "#1a2744" }}
       >
-        <div
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
-          style={{ backgroundColor: "#2a3f6f" }}
-        >
-          <img src={pinIcono} alt="" className="h-24 w-24 object-contain" />
-        </div>
+        
+          <img src={pinIcono} alt="" className="h-20 w-20 object-contain" />
+
         <p className="text-sm font-bold text-white">
           {organizacion.direccion || "Dirección no disponible"}
         </p>

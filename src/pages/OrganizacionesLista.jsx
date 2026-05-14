@@ -99,18 +99,13 @@ function OrganizacionesLista() {
               className="flex w-full items-center gap-4 rounded-full px-4 py-3 text-left transition-transform active:scale-95"
               style={{ backgroundColor: "#1a2744" }}
             >
-              {/* Icono con fondo circular */}
-              <div
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
-                style={{ backgroundColor: "#2a3f6f" }}
-              >
+              
                 <img
                   src={organizacionesIcono}
                   alt=""
-                  className="h-24 w-24 object-contain"
+                  className="h-20 w-20 object-contain"
                   aria-hidden="true"
                 />
-              </div>
 
               <div className="flex-1">
                 <h2 className="text-sm font-black text-white leading-snug">
