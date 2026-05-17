@@ -319,3 +319,58 @@ export function obtenerZona(slug) {
 export function obtenerOrganizacion(slug, id) {
   return organizacionesPorZona[slug]?.items.find((item) => item.id === id)
 }
+
+export function normalizarTexto(texto = "") {
+  return texto
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+}
+
+export function obtenerTodasLasOrganizaciones() {
+  return Object.entries(organizacionesPorZona).flatMap(([zonaSlug, zona]) =>
+    zona.items.map((organizacion) => ({
+      ...organizacion,
+      zonaSlug,
+      zonaNombre: zona.nombre,
+    })),
+  )
+}
+
+export function obtenerOrganizacionPorContacto(texto = "") {
+  const textoNormalizado = normalizarTexto(texto)
+
+  if (!textoNormalizado) {
+    return null
+  }
+
+  const organizaciones = obtenerTodasLasOrganizaciones()
+  const coincidenciaExacta = organizaciones.find((organizacion) =>
+    textoNormalizado.includes(normalizarTexto(organizacion.nombre)),
+  )
+
+  if (coincidenciaExacta) {
+    return coincidenciaExacta
+  }
+
+  const alias = [
+    { palabras: ["fosalud"], nombre: "FOSALUD" },
+    { palabras: ["cruz verde"], nombre: "Cruz Verde" },
+    { palabras: ["cruz roja"], nombre: "Cruz Roja" },
+    { palabras: ["bomberos"], nombre: "Cuerpo de Bomberos" },
+  ]
+
+  const aliasEncontrado = alias.find(({ palabras }) =>
+    palabras.some((palabra) => textoNormalizado.includes(palabra)),
+  )
+
+  if (!aliasEncontrado) {
+    return null
+  }
+
+  return organizaciones.find((organizacion) =>
+    normalizarTexto(organizacion.nombre).includes(normalizarTexto(aliasEncontrado.nombre)),
+  )
+}
