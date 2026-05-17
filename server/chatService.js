@@ -3,6 +3,7 @@ import path from "node:path"
 import { EMERTECH_SYSTEM_PROMPT } from "./prompts.js"
 
 const TIEMPO_LIMITE_MS = 45000
+const MAX_MENSAJE_LENGTH = 1000
 const DEFAULT_GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 const DEFAULT_GROQ_MODEL = "llama-3.1-8b-instant"
 
@@ -36,6 +37,18 @@ export async function createChatResponse({ mensaje }) {
     }
   }
 
+  // eslint-disable-next-line no-control-regex
+  const mensajeSanitizado = mensaje.trim().slice(0, MAX_MENSAJE_LENGTH).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "")
+
+  if (!mensajeSanitizado) {
+    return {
+      status: 400,
+      body: {
+        error: "El mensaje no contiene texto valido despues de ser procesado.",
+      },
+    }
+  }
+
   if (!process.env.GROQ_API_KEY) {
     return {
       status: 500,
@@ -65,7 +78,7 @@ export async function createChatResponse({ mensaje }) {
           },
           {
             role: "user",
-            content: mensaje.trim(),
+            content: mensajeSanitizado,
           },
         ],
         temperature: 0.3,

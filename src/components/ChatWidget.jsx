@@ -1,5 +1,12 @@
 import { useState } from "react"
 
+const MAX_CHAR = 500
+
+function sanitizar(texto) {
+  // eslint-disable-next-line no-control-regex
+  return texto.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "").trim()
+}
+
 function ChatWidget({ isOpen, onClose }) {
   const [mensaje, setMensaje] = useState("")
   const [mensajes, setMensajes] = useState([])
@@ -9,7 +16,7 @@ function ChatWidget({ isOpen, onClose }) {
   async function enviarMensaje(evento) {
     evento.preventDefault()
 
-    const mensajeLimpio = mensaje.trim()
+    const mensajeLimpio = sanitizar(mensaje)
 
     if (!mensajeLimpio) {
       return
@@ -135,6 +142,7 @@ function ChatWidget({ isOpen, onClose }) {
               value={mensaje}
               onChange={(evento) => setMensaje(evento.target.value)}
               placeholder="Escribe tu mensaje..."
+              maxLength={MAX_CHAR}
               className="max-h-28 min-h-[44px] flex-1 resize-none bg-transparent px-1 text-sm text-gray-900 outline-none placeholder:text-gray-400"
             />
 
@@ -163,6 +171,11 @@ async function readJsonResponse(response) {
   try {
     return JSON.parse(text)
   } catch {
+    if (!response.ok) {
+      throw new Error(
+        `El servidor respondio con un error inesperado (codigo ${response.status}). Vuelve a intentar mas tarde.`,
+      )
+    }
     throw new Error("El servidor respondio con un formato inesperado.")
   }
 }
