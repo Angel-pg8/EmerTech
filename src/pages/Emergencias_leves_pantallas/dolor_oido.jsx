@@ -123,13 +123,13 @@ export default function DolorOido() {
           padding: "14px 20px",
           textAlign: "center",
         }}>
-          <p style={{ color: "#93c5fd", fontSize: 16, fontWeight: 600, margin: 0 }}>¿Qué hacer?</p>
+          <p style={{ color: "#93c5fd", fontSize: 20, fontWeight: 600, margin: 0 }}>¿Qué hacer?</p>
         </div>
 
         {/* Grid de pasos */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "1fr",
           gap: 1,
           backgroundColor: "#e5e7eb",
         }}>
@@ -170,7 +170,7 @@ export default function DolorOido() {
                 <img
                   src={paso.icono}
                   alt={`Paso ${paso.numero}`}
-                  style={{ width: "100%", maxWidth: 140, height: 120, objectFit: "contain" }}
+                  style={{ width: "100%", maxWidth: 250, height: 150, objectFit: "contain" }}
                 />
               </div>
 
@@ -180,13 +180,13 @@ export default function DolorOido() {
                   display: "flex", alignItems: "flex-start", gap: 6,
                   backgroundColor: "#fff7ed", borderRadius: 8, padding: "6px 8px",
                 }}>
-                  <span style={{ fontSize: 13, flexShrink: 0 }}>⚠️</span>
-                  <p style={{ fontSize: 11, color: "#92400e", lineHeight: 1.4, margin: 0 }}>
+                  <span style={{ fontSize: 20, flexShrink: 0 }}>⚠️</span>
+                  <p style={{ fontSize: 15, color: "#92400e", lineHeight: 1.4, margin: 0 }}>
                     {paso.descripcion}
                   </p>
                 </div>
               ) : (
-                <p style={{ fontSize: 11, color: "#4b5563", lineHeight: 1.4, margin: 0, textAlign: "center" }}>
+                <p style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.4, margin: 0, textAlign: "center" }}>
                   {paso.descripcion}
                 </p>
               )}
