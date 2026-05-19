@@ -128,13 +128,13 @@ export default function DolorOido() {
                 <div style={{
                   width: 28, height: 28, borderRadius: 8,
                   backgroundColor: "#1a3a6b", color: "#fff",
-                  fontSize: 14, fontWeight: 800,
+                  fontSize: 20, fontWeight: 800,
                   display: "flex", alignItems: "center", justifyContent: "center",
                   flexShrink: 0,
                 }}>
                   {paso.numero}
                 </div>
-                <p style={{ fontSize: 12, fontWeight: 700, color: "#0d1b2a", lineHeight: 1.3, margin: 0, paddingTop: 3 }}>
+                <p style={{ fontSize: 15, fontWeight: 700, color: "#0d1b2a", lineHeight: 1.3, margin: 0, paddingTop: 3 }}>
                   {paso.titulo}
                 </p>
               </div>
