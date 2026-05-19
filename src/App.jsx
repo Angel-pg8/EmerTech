@@ -33,7 +33,7 @@ function AppRoutes() {
         <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
         <Route path="/organizaciones/:zona/:id" element={<OrganizacionDetalle />} />
         <Route path="/chat" element={<Navigate to="/" replace />} />
-        <Route path="/emergencias/leve/Dolor de oido" element={<DolorOido onBack={() => navigate(-1)} />} />
+        <Route path="/emergencias/leve/Dolor de oido" element={<DolorOido />} />
       </Routes>
     </div>
   )

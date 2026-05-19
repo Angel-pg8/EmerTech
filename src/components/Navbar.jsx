@@ -30,8 +30,10 @@ function Navbar({ isChatOpen, onToggleChat }) {
       >
         <Link
           to="/"
-          className={`flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center ${
-            isEmergenciasActive() ? "text-[#45e3df]" : "text-white/80"
+          className={`flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center transition ${
+            isEmergenciasActive()
+              ? "bg-white/10 text-[#45e3df]"
+              : "text-white/80 active:bg-white/5"
           }`}
         >
           <img
@@ -45,7 +47,7 @@ function Navbar({ isChatOpen, onToggleChat }) {
 
         <a
           href="tel:911"
-          className="flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center text-white/80"
+          className="flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center text-white/80 active:bg-white/5"
           aria-label="Llamar a emergencias"
         >
           <img
@@ -58,8 +60,10 @@ function Navbar({ isChatOpen, onToggleChat }) {
         </a>
         <Link
           to="/organizaciones"
-          className={`flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center ${
-            isSectionActive("/organizaciones") ? "text-[#45e3df]" : "text-white/80"
+          className={`flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center transition ${
+            isSectionActive("/organizaciones")
+              ? "bg-white/10 text-[#45e3df]"
+              : "text-white/80 active:bg-white/5"
           }`}
         >
           <img
@@ -76,8 +80,10 @@ function Navbar({ isChatOpen, onToggleChat }) {
         <button
           type="button"
           onClick={onToggleChat}
-          className={`flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center ${
-            isChatOpen ? "text-[#45e3df]" : "text-white/80"
+          className={`flex min-h-[58px] flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1 text-center transition ${
+            isChatOpen
+              ? "bg-white/10 text-[#45e3df]"
+              : "text-white/80 active:bg-white/5"
           }`}
           aria-expanded={isChatOpen}
           aria-label="Abrir chat de asistencia"

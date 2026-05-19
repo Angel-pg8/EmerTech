@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
 import OpenStreetMapEmbed from "../components/OpenStreetMapEmbed"
-import organizacionesIcono from "../assets/organizaciones_icono.png"
 import pinIcono from "../assets/pin.png"
 import Logo from "../assets/loguito.png"
 import BackButton from "../components/BackButton"

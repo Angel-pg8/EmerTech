@@ -1,70 +1,56 @@
-import { useNavigate } from "react-router-dom";
-import imgDolorOido from "../../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png";
-import iconoPaso1 from "../../assets/Emergencias_leves_iconos/icono_paso_1.PNG";
-import iconoPaso2 from "../../assets/Emergencias_leves_iconos/icono_paso_2.PNG";
-import iconoPaso3 from "../../assets/Emergencias_leves_iconos/icono_paso_3.PNG";
-import iconoPaso4 from "../../assets/Emergencias_leves_iconos/icono_paso_4.PNG";
-import iconoPaso5 from "../../assets/Emergencias_leves_iconos/icono_paso_5.PNG";
-import iconoPaso6 from "../../assets/Emergencias_leves_iconos/icono_paso_6.PNG";
+import imgDolorOido from "../../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
+import iconoPaso1 from "../../assets/Emergencias_leves_iconos/icono_paso_1.PNG"
+import iconoPaso2 from "../../assets/Emergencias_leves_iconos/icono_paso_2.PNG"
+import iconoPaso3 from "../../assets/Emergencias_leves_iconos/icono_paso_3.PNG"
+import iconoPaso4 from "../../assets/Emergencias_leves_iconos/icono_paso_4.PNG"
+import iconoPaso5 from "../../assets/Emergencias_leves_iconos/icono_paso_5.PNG"
+import iconoPaso6 from "../../assets/Emergencias_leves_iconos/icono_paso_6.PNG"
+import EmergenciaDetalleLayout from "../../components/EmergenciaDetalleLayout"
 
 const pasos = [
   {
     numero: 1,
-    titulo: "Mantén el oído seco y limpio",
-    descripcion: "Evita que entre agua en el oído.",
+    titulo: "Manten el oido seco y limpio",
+    descripcion: "Evita que entre agua en el oido.",
     icono: iconoPaso1,
   },
   {
     numero: 2,
     titulo: "No introduzcas objetos ni hisopos",
-    descripcion: "Puede empeorar la irritación o causar lesiones.",
+    descripcion: "Puede empeorar la irritacion o causar lesiones.",
     icono: iconoPaso2,
   },
   {
     numero: 3,
-    titulo: "Aplica una compresa tibia en el oído externo",
+    titulo: "Aplica una compresa tibia en el oido externo",
     descripcion: "Puede ayudar a aliviar el dolor.",
     icono: iconoPaso3,
   },
   {
     numero: 4,
-    titulo: "Puedes tomar un analgésico si es necesario",
+    titulo: "Puedes tomar un analgesico si es necesario",
     descripcion:
-      "Paracetamol o ibuprofeno según lo indicado. Lee las instrucciones y no excedas la dosis.",
+      "Paracetamol o ibuprofeno segun lo indicado. Lee las instrucciones y no excedas la dosis.",
     icono: iconoPaso4,
   },
   {
     numero: 5,
-    titulo: "Evita cambios bruscos de presión",
+    titulo: "Evita cambios bruscos de presion",
     descripcion:
-      "Evita viajes en avión o subir a zonas altas si el dolor persiste.",
+      "Evita viajes en avion o subir a zonas altas si el dolor persiste.",
     icono: iconoPaso5,
   },
   {
     numero: 6,
     titulo: "Consulta a un profesional si el dolor no mejora",
     descripcion:
-      "Si el dolor dura más de 2 días, aumenta o hay fiebre o secreción, consulta a un médico.",
+      "Si el dolor dura mas de 2 dias, aumenta o hay fiebre o secrecion, consulta a un medico.",
     icono: iconoPaso6,
     esAlerta: true,
   },
-];
-
-const BackArrow = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M15 18l-6-6 6-6"
-      stroke="#1a3a6b"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+]
 
 export default function DolorOido() {
-  const navigate = useNavigate();
-
   return (
     <div style={{ fontFamily: "'Segoe UI', sans-serif", backgroundColor: "#f0f4f8", minHeight: "100vh", paddingBottom: 100 }}>
 
