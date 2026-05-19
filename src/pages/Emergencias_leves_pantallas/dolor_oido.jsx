@@ -5,6 +5,8 @@ import iconoPaso3 from "../../assets/Emergencias_leves_iconos/icono_paso_3.PNG"
 import iconoPaso4 from "../../assets/Emergencias_leves_iconos/icono_paso_4.PNG"
 import iconoPaso5 from "../../assets/Emergencias_leves_iconos/icono_paso_5.PNG"
 import iconoPaso6 from "../../assets/Emergencias_leves_iconos/icono_paso_6.PNG"
+import { useNavigate } from "react-router-dom"
+import BackButton from "../../components/BackButton"
 import EmergenciaDetalleLayout from "../../components/EmergenciaDetalleLayout"
 
 const pasos = [
@@ -51,25 +53,19 @@ const pasos = [
 ]
 
 export default function DolorOido() {
+  const navigate = useNavigate() // ✅ agregado aquí
+
   return (
     <div style={{ fontFamily: "'Segoe UI', sans-serif", backgroundColor: "#f0f4f8", minHeight: "100vh", paddingBottom: 100 }}>
 
       {/* Header con imagen */}
       <div style={{ position: "relative", height: 220, overflow: "hidden", borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
         <img src={imgDolorOido} alt="Dolor de oído" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        <button
-          onClick={() => navigate(-1)}
-          style={{
-            position: "absolute", top: 16, left: 16,
-            width: 36, height: 36, borderRadius: "50%",
-            backgroundColor: "rgba(255,255,255,0.85)",
-            border: "none", cursor: "pointer",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)", zIndex: 10,
-          }}
-        >
-          <BackArrow />
-        </button>
+        
+        {/* ✅ BackButton reemplaza a BackArrow */}
+        <div style={{ position: "absolute", top: 16, left: 16, zIndex: 10 }}>
+          <BackButton onClick={() => navigate("/emergencias/leve")} />
+        </div>
       </div>
 
       {/* Título */}
@@ -143,7 +139,7 @@ export default function DolorOido() {
                 </p>
               </div>
 
-              {/* Imagen grande con fondo blanco */}
+              {/* Imagen */}
               <div style={{
                 backgroundColor: "#ffffff",
                 borderRadius: 12,
@@ -181,5 +177,5 @@ export default function DolorOido() {
         </div>
       </div>
     </div>
-  );
+  )
 }
