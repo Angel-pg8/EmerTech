@@ -1,56 +1,55 @@
-import imgDolorCabeza from "../../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
-import iconoPaso1 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 1 - leve.jpeg"
-import iconoPaso2 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 2 - leve.jpeg"
-import iconoPaso3 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 3 - leve.jpeg"
-import iconoPaso4 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 4 - leve.jpeg"
-import iconoPaso5 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 5 - leve.jpeg"
-import iconoPaso6 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 6 - leve.jpeg"
+import imgDeshidratacion from "../../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
+import iconoPaso1 from "../../assets/Emergencias_leves_iconos/deshidratacion/Deshidratacion - paso 1- leve.jpeg"
+import iconoPaso2 from "../../assets/Emergencias_leves_iconos/deshidratacion/Deshidratacion - paso 2- leve.jpeg"
+import iconoPaso3 from "../../assets/Emergencias_leves_iconos/deshidratacion/Deshidratacion - paso 3- leve.jpeg"
+import iconoPaso4 from "../../assets/Emergencias_leves_iconos/deshidratacion/Deshidratacion - paso 4- leve.jpeg"
+import iconoPaso5 from "../../assets/Emergencias_leves_iconos/deshidratacion/Deshidratacion - paso 5- leve.jpeg"
+import iconoPaso6 from "../../assets/Emergencias_leves_iconos/deshidratacion/Deshidratacion - paso 6- leve.jpeg"
 import { useNavigate } from "react-router-dom"
 import BackButton from "../../components/BackButton"
 
 const pasos = [
   {
     numero: 1,
-    titulo: "Descansa en un lugar tranquilo y con poca luz",
-    descripcion: "El ruido y la luz pueden empeorar el dolor de cabeza.",
+    titulo: "Reconoce los sintomas",
+    descripcion: "Sed, boca seca, cansancio, orina oscura y poca cantidad.",
     icono: iconoPaso1,
   },
   {
     numero: 2,
-    titulo: "Bebe agua con regularidad",
-    descripcion: "La deshidratacion puede causar dolor de cabeza.",
+    titulo: "Bebe liquidos poco a poco",
+    descripcion: "Agua o solucion de rehidratacion oral (SRO).",
     icono: iconoPaso2,
   },
   {
     numero: 3,
-    titulo: "Puedes tomar un analgesico si es necesario",
-    descripcion:
-      "Paracetamol o ibuprofeno segun lo indicado. Lee las instrucciones y no excedas la dosis.",
+    titulo: "Descansa en un lugar fresco y sombreado",
+    descripcion: "Evita la exposicion al sol y el calor.",
     icono: iconoPaso3,
   },
   {
     numero: 4,
-    titulo: "Aplica compresas frias en la frente o sienes",
-    descripcion: "Puede ayudar a reducir el dolor.",
+    titulo: "Usa ropa ligera y fresca",
+    descripcion: "La ropa ligera ayuda a regular la temperatura corporal.",
     icono: iconoPaso4,
   },
   {
     numero: 5,
-    titulo: "Evita pantallas, ruidos fuertes y luces intensas",
-    descripcion: "Reduce los estimulos que agravan el dolor.",
+    titulo: "Evita el ejercicio y el calor intenso",
+    descripcion: "Descansa hasta que te sientas mejor.",
     icono: iconoPaso5,
   },
   {
     numero: 6,
-    titulo: "Si el dolor no mejora o empeora, consulta a un profesional",
+    titulo: "Consulta si los sintomas no mejoran o empeoran",
     descripcion:
-      "Busca atencion si el dolor es intenso, frecuente o acompañado de otros sintomas (nauseas, vision borrosa, fiebre, mareo, etc.).",
+      "Busca atencion si hay vomitos, diarrea, fiebre o mareos fuertes.",
     icono: iconoPaso6,
     esAlerta: true,
   },
 ]
 
-export default function DolorCabeza() {
+export default function Deshidratacion() {
   const navigate = useNavigate()
 
   return (
@@ -58,7 +57,7 @@ export default function DolorCabeza() {
 
       {/* Header con imagen */}
       <div style={{ position: "relative", height: 220, overflow: "hidden", borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
-        <img src={imgDolorCabeza} alt="Dolor de cabeza" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src={imgDeshidratacion} alt="Deshidratacion" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", top: 16, left: 16, zIndex: 10 }}>
           <BackButton onClick={() => navigate("/emergencias")} />
         </div>
@@ -67,7 +66,7 @@ export default function DolorCabeza() {
       {/* Título */}
       <div style={{ padding: "20px 20px 8px" }}>
         <h1 style={{ fontSize: 26, fontWeight: 800, color: "#0d1b2a", margin: 0 }}>
-          Dolor de cabeza
+          Deshidratación
         </h1>
       </div>
 
