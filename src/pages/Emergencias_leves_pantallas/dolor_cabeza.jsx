@@ -60,7 +60,7 @@ export default function DolorCabeza() {
       <div style={{ position: "relative", height: 220, overflow: "hidden", borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
         <img src={imgDolorCabeza} alt="Dolor de cabeza" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", top: 16, left: 16, zIndex: 10 }}>
-          <BackButton onClick={() => navigate("/emergencias")} />
+          <BackButton onClick={() => navigate("/emergencias/leve")} />
         </div>
       </div>
 
