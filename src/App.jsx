@@ -14,6 +14,7 @@ import Organizaciones from "./pages/Organizaciones"
 import OrganizacionDetalle from "./pages/OrganizacionDetalle"
 import OrganizacionesLista from "./pages/OrganizacionesLista"
 import DolorOido from "./pages/Emergencias_leves_pantallas/dolor_oido"
+import DolorCabeza from "./pages/Emergencias_leves_pantallas/dolor_cabeza"
 
 function AppRoutes() {
   const location = useLocation()
@@ -34,6 +35,7 @@ function AppRoutes() {
         <Route path="/organizaciones/:zona/:id" element={<OrganizacionDetalle />} />
         <Route path="/chat" element={<Navigate to="/" replace />} />
         <Route path="/emergencias/leve/Dolor de oido" element={<DolorOido />} />
+        <Route path="/emergencias/leve/Dolor de cabeza" element={<DolorCabeza />} />
       </Routes>
     </div>
   )

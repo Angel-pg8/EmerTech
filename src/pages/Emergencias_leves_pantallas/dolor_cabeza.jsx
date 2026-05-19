@@ -1,77 +1,73 @@
-import imgDolorOido from "../../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
-import iconoPaso1 from "../../assets/Emergencias_leves_iconos/dolor_oido/icono_paso_1.PNG"
-import iconoPaso2 from "../../assets/Emergencias_leves_iconos/dolor_oido/icono_paso_2.PNG"
-import iconoPaso3 from "../../assets/Emergencias_leves_iconos/dolor_oido/icono_paso_3.PNG"
-import iconoPaso4 from "../../assets/Emergencias_leves_iconos/dolor_oido/icono_paso_4.PNG"
-import iconoPaso5 from "../../assets/Emergencias_leves_iconos/dolor_oido/icono_paso_5.PNG"
-import iconoPaso6 from "../../assets/Emergencias_leves_iconos/dolor_oido/icono_paso_6.PNG"
+import imgDolorCabeza from "../../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
+import iconoPaso1 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 1 - leve.jpeg"
+import iconoPaso2 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 2 - leve.jpeg"
+import iconoPaso3 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 3 - leve.jpeg"
+import iconoPaso4 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 4 - leve.jpeg"
+import iconoPaso5 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 5 - leve.jpeg"
+import iconoPaso6 from "../../assets/Emergencias_leves_iconos/dolor_cabeza/Dolor de cabeza - paso 6 - leve.jpeg"
 import { useNavigate } from "react-router-dom"
 import BackButton from "../../components/BackButton"
-import EmergenciaDetalleLayout from "../../components/EmergenciaDetalleLayout"
 
 const pasos = [
   {
     numero: 1,
-    titulo: "Manten el oido seco y limpio",
-    descripcion: "Evita que entre agua en el oido.",
+    titulo: "Descansa en un lugar tranquilo y con poca luz",
+    descripcion: "El ruido y la luz pueden empeorar el dolor de cabeza.",
     icono: iconoPaso1,
   },
   {
     numero: 2,
-    titulo: "No introduzcas objetos ni hisopos",
-    descripcion: "Puede empeorar la irritacion o causar lesiones.",
+    titulo: "Bebe agua con regularidad",
+    descripcion: "La deshidratacion puede causar dolor de cabeza.",
     icono: iconoPaso2,
   },
   {
     numero: 3,
-    titulo: "Aplica una compresa tibia en el oido externo",
-    descripcion: "Puede ayudar a aliviar el dolor.",
+    titulo: "Puedes tomar un analgesico si es necesario",
+    descripcion:
+      "Paracetamol o ibuprofeno segun lo indicado. Lee las instrucciones y no excedas la dosis.",
     icono: iconoPaso3,
   },
   {
     numero: 4,
-    titulo: "Puedes tomar un analgesico si es necesario",
-    descripcion:
-      "Paracetamol o ibuprofeno segun lo indicado. Lee las instrucciones y no excedas la dosis.",
+    titulo: "Aplica compresas frias en la frente o sienes",
+    descripcion: "Puede ayudar a reducir el dolor.",
     icono: iconoPaso4,
   },
   {
     numero: 5,
-    titulo: "Evita cambios bruscos de presion",
-    descripcion:
-      "Evita viajes en avion o subir a zonas altas si el dolor persiste.",
+    titulo: "Evita pantallas, ruidos fuertes y luces intensas",
+    descripcion: "Reduce los estimulos que agravan el dolor.",
     icono: iconoPaso5,
   },
   {
     numero: 6,
-    titulo: "Consulta a un profesional si el dolor no mejora",
+    titulo: "Si el dolor no mejora o empeora, consulta a un profesional",
     descripcion:
-      "Si el dolor dura mas de 2 dias, aumenta o hay fiebre o secrecion, consulta a un medico.",
+      "Busca atencion si el dolor es intenso, frecuente o acompanado de otros sintomas (nauseas, vision borrosa, fiebre, mareo, etc.).",
     icono: iconoPaso6,
     esAlerta: true,
   },
 ]
 
-export default function DolorOido() {
-  const navigate = useNavigate() // ✅ agregado aquí
+export default function DolorCabeza() {
+  const navigate = useNavigate()
 
   return (
     <div style={{ fontFamily: "'Segoe UI', sans-serif", backgroundColor: "#f0f4f8", minHeight: "100vh", paddingBottom: 100 }}>
 
       {/* Header con imagen */}
       <div style={{ position: "relative", height: 220, overflow: "hidden", borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
-        <img src={imgDolorOido} alt="Dolor de oído" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        
-        {/* ✅ BackButton reemplaza a BackArrow */}
+        <img src={imgDolorCabeza} alt="Dolor de cabeza" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", top: 16, left: 16, zIndex: 10 }}>
-          <BackButton onClick={() => navigate("/emergencias/leve")} />
+          <BackButton onClick={() => navigate("/emergencias")} />
         </div>
       </div>
 
       {/* Título */}
       <div style={{ padding: "20px 20px 8px" }}>
         <h1 style={{ fontSize: 26, fontWeight: 800, color: "#0d1b2a", margin: 0 }}>
-          Dolor de oído
+          Dolor de cabeza
         </h1>
       </div>
 
@@ -134,7 +130,7 @@ export default function DolorOido() {
                 }}>
                   {paso.numero}
                 </div>
-                <p style={{ fontSize: 15, fontWeight: 700, color: "#0d1b2a", lineHeight: 1.3, margin: 0, paddingTop: 3 }}>
+                <p style={{ fontSize: 15, fontWeight: 700, color: "#1a3a6b", lineHeight: 1.3, margin: 0, paddingTop: 3 }}>
                   {paso.titulo}
                 </p>
               </div>
