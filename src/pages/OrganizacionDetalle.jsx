@@ -48,7 +48,7 @@ function OrganizacionDetalle() {
       </div>
 
       {/* DIRECCIÓN */}
-      <button
+      <div
         className="mb-3 flex w-full items-center gap-4 rounded-full px-4 py-4 text-left transition-transform active:scale-95"
         style={{ backgroundColor: "#1a2744" }}
       >
