@@ -9,16 +9,16 @@ export const organizacionesPorZona = {
         tipo: "Atencion prehospitalaria",
         direccion: "Zona centro de San Miguel, El Salvador",
         coordenadas: { lat: 13.4839, lon: -88.1775 },
-        detalle:
-          "Brinda apoyo de primera respuesta, traslado y orientacion basica en situaciones de emergencia.",
+        numero:
+          "2121 2828",
       },
       {
         id: "2",
-        nombre: "Hospital Regional de San Miguel",
+        nombre: "Hospital Nacional Dr. Escalón",
         tipo: "Centro hospitalario",
         direccion: "Calle Hermanos Maristas #13, San Miguel CP 3301, El Salvador",
         coordenadas: { lat: 13.4768, lon: -88.181 },
-        detalle:
+        numero:
           "Atiende urgencias generales y canaliza casos de mayor complejidad dentro de la region oriental.",
       },
       {
@@ -27,7 +27,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario",
         direccion: "Barrio El Calvario, San Miguel, El Salvador",
         coordenadas: { lat: 13.482, lon: -88.1763 },
-        detalle:
+        numero:
           "Se especializa en la gestion de bancos de sangre, rescate acuatico y asistencia humanitaria en desastres naturales.",
       },
       {
@@ -36,7 +36,7 @@ export const organizacionesPorZona = {
         tipo: "Respuesta de emergencia",
         direccion: "Cerca del centro de gobierno, San Miguel, El Salvador",
         coordenadas: { lat: 13.4797, lon: -88.1778 },
-        detalle:
+        numero:
           "Su especialidad principal es el control de incendios estructurales en zonas urbanas y fuegos forestales en las faldas del volcan.",
       },
       {
@@ -45,7 +45,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario",
         direccion: "Carretera CA-1, Colonia Bustillo, San Miguel, El Salvador",
         coordenadas: { lat: 13.4749, lon: -88.1826 },
-        detalle:
+        numero:
           "Se enfoca en servicios quirurgicos especializados y atencion de emergencia bajo protocolos de disciplina y eficiencia militar.",
       },
       {
@@ -54,7 +54,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario",
         direccion: "23 Avenida Sur, San Miguel, El Salvador",
         coordenadas: { lat: 13.479, lon: -88.1805 },
-        detalle:
+        numero:
           "Es el centro de referencia para medicina de tercer nivel, especializandose en nefrologia, cardiologia y cuidados intensivos neonatales.",
       },
       {
@@ -63,7 +63,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario",
         direccion: "Avenida Roosevelt Norte #408, Barrio San Felipe, San Miguel, El Salvador",
         coordenadas: { lat: 13.4817, lon: -88.177 },
-        detalle:
+        numero:
           "Se especializa en servicios de emergencia 24/7, cirugia, medicina interna, ginecologia, pediatria, laboratorio clinico y atencion de maxima urgencia.",
       },
     ],
@@ -78,7 +78,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario nacional",
         direccion: "Barrio La Parroquia, Usulutan, El Salvador",
         coordenadas: { lat: 13.3469, lon: -88.4425 },
-        detalle:
+        numero:
           "Atiende emergencias y especialidades basicas como cirugia, pediatria y ginecologia. Tambien busca reducir la morbilidad y mortalidad en la zona.",
       },
       {
@@ -87,7 +87,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario nacional",
         direccion: "Final Avenida Gregorio Melara, Usulutan, El Salvador",
         coordenadas: { lat: 13.3458, lon: -88.444 },
-        detalle:
+        numero:
           "Ofrece servicios hospitalarios basicos y funciona como centro de referencia para comunidades rurales y costeras.",
       },
       {
@@ -96,7 +96,7 @@ export const organizacionesPorZona = {
         tipo: "Atencion especializada",
         direccion: "Centro de Usulutan, cerca del Hospital Nacional",
         coordenadas: { lat: 13.3475, lon: -88.4418 },
-        detalle:
+        numero:
           "Brinda atencion en areas medicas complejas como cardiologia y neurologia, evitando que pacientes viajen a San Salvador.",
       },
       {
@@ -105,7 +105,7 @@ export const organizacionesPorZona = {
         tipo: "Respuesta de emergencia",
         direccion: "Avenida Gregorio Melara, Usulutan, El Salvador",
         coordenadas: { lat: 13.3462, lon: -88.4448 },
-        detalle:
+        numero:
           "Atiende incendios, rescates y emergencias, apoyando con primeros auxilios y coordinacion con hospitales.",
       },
       {
@@ -114,7 +114,7 @@ export const organizacionesPorZona = {
         tipo: "Atencion prehospitalaria",
         direccion: "Barrio El Calvario, Usulutan, El Salvador",
         coordenadas: { lat: 13.345, lon: -88.4432 },
-        detalle:
+        numero:
           "Ofrece servicios de ambulancia y atencion prehospitalaria, vital en comunidades rurales.",
       },
       {
@@ -123,7 +123,7 @@ export const organizacionesPorZona = {
         tipo: "Atencion primaria",
         direccion: "Zona centrica de Usulutan, El Salvador",
         coordenadas: { lat: 13.3467, lon: -88.4421 },
-        detalle:
+        numero:
           "Administra clinicas de atencion primaria, vacunacion y control de enfermedades cronicas, con referencia a hospitales nacionales.",
       },
       {
@@ -132,7 +132,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio La Parroquia, Jiquilisco, Usulutan",
         coordenadas: { lat: 13.3164, lon: -88.5853 },
-        detalle:
+        numero:
           "Proporciona consultas generales, vacunacion y programas comunitarios, acercando la atencion a zonas costeras.",
       },
       {
@@ -141,7 +141,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Centro urbano de Usulutan, El Salvador",
         coordenadas: { lat: 13.3471, lon: -88.4437 },
-        detalle:
+        numero:
           "Atiende consultas externas, salud materno-infantil y prevencion de enfermedades, enlazando con hospitales de mayor nivel.",
       },
     ],
@@ -156,7 +156,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario nacional",
         direccion: "Barrio Las Flores, La Union, El Salvador",
         coordenadas: { lat: 13.3367, lon: -87.8438 },
-        detalle:
+        numero:
           "Resuelve el acceso a servicios de salud de segundo nivel, proporcionando atencion curativa, preventiva y de rehabilitacion a la poblacion de la zona sur. Trabaja para disminuir morbilidad y mortalidad mediante modernizacion de servicios y atencion hospitalaria.",
       },
       {
@@ -165,7 +165,7 @@ export const organizacionesPorZona = {
         tipo: "Centro hospitalario nacional",
         direccion: "Barrio El Calvario, Santa Rosa de Lima, La Union, El Salvador",
         coordenadas: { lat: 13.6245, lon: -87.8931 },
-        detalle:
+        numero:
           "Brinda atencion permanente e integral en medicina interna, cirugia, pediatria y ginecobstetricia. Mejora infraestructura, farmacias y procesos diagnosticos para garantizar atencion de calidad.",
       },
       {
@@ -174,7 +174,7 @@ export const organizacionesPorZona = {
         tipo: "Hospital privado",
         direccion: "Centro de Santa Rosa de Lima, La Union, El Salvador",
         coordenadas: { lat: 13.6238, lon: -87.892 },
-        detalle:
+        numero:
           "Resuelve la demanda de servicios medicos de tercer nivel, incluyendo imagenes, laboratorio clinico, terapia de sustitucion renal y servicios hospitalarios especializados.",
       },
       {
@@ -183,7 +183,7 @@ export const organizacionesPorZona = {
         tipo: "Clinica privada",
         direccion: "Avenida General Menendez, Santa Rosa de Lima, La Union, El Salvador",
         coordenadas: { lat: 13.6252, lon: -87.894 },
-        detalle:
+        numero:
           "Ofrece consultas medicas especializadas y diagnostico personalizado con tecnologia de vanguardia, facilitando chequeos preventivos y diagnosticos rapidos.",
       },
       {
@@ -192,7 +192,7 @@ export const organizacionesPorZona = {
         tipo: "Atencion ambulatoria",
         direccion: "Centro urbano de Santa Rosa de Lima, La Union, El Salvador",
         coordenadas: { lat: 13.6249, lon: -87.8927 },
-        detalle:
+        numero:
           "Cubre la necesidad de atencion ambulatoria inmediata y servicios de apoyo diagnostico local, facilitando consulta medica sin internamiento hospitalario.",
       },
       {
@@ -201,7 +201,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio San Carlos, La Union, El Salvador",
         coordenadas: { lat: 13.3381, lon: -87.845 },
-        detalle:
+        numero:
           "Atiende problemas de primer nivel como control de enfermedades cronicas, vacunacion, control prenatal y atencion infantil. Actua como filtro inicial y deriva casos complejos.",
       },
       {
@@ -210,7 +210,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio El Centro, Conchagua, La Union, El Salvador",
         coordenadas: { lat: 13.3074, lon: -87.8642 },
-        detalle:
+        numero:
           "Brinda acceso basico, prevencion de enfermedades y primer contacto con el sistema de salud, descongestionando hospitales mediante referencias oportunas.",
       },
       {
@@ -219,7 +219,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Centro de El Carmen, La Union, El Salvador",
         coordenadas: { lat: 13.3778, lon: -87.7615 },
-        detalle:
+        numero:
           "Gestiona salud preventiva en el territorio, incluyendo vacunacion, control prenatal, atencion infantil y seguimiento de enfermedades cronicas.",
       },
     ],
@@ -234,7 +234,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio El Centro, El Divisadero, Morazan, El Salvador",
         coordenadas: { lat: 13.6508, lon: -88.0042 },
-        detalle:
+        numero:
           "Brinda atencion primaria, consultas generales y programas de prevencion.",
       },
       {
@@ -243,7 +243,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Centro urbano de Osicala, Morazan, El Salvador",
         coordenadas: { lat: 13.7341, lon: -88.1015 },
-        detalle:
+        numero:
           "Ofrece control prenatal, vacunacion y atencion comunitaria, fortaleciendo la salud materno-infantil en la zona.",
       },
       {
@@ -252,7 +252,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio El Centro, Corinto, Morazan, El Salvador",
         coordenadas: { lat: 13.8106, lon: -87.9713 },
-        detalle:
+        numero:
           "Atiende consultas externas y emergencias menores, funcionando como primer contacto para emergencias en la poblacion local.",
       },
       {
@@ -261,7 +261,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio El Calvario, Cacaopera, Morazan, El Salvador",
         coordenadas: { lat: 13.7662, lon: -88.0879 },
-        detalle:
+        numero:
           "Se enfoca en programas de salud preventiva y control de enfermedades transmisibles.",
       },
       {
@@ -270,7 +270,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio El Centro, San Francisco Gotera, Morazan, El Salvador",
         coordenadas: { lat: 13.6995, lon: -88.1008 },
-        detalle:
+        numero:
           "Es la principal unidad del municipio, con servicios de consulta general, programas de prevencion y referencia a hospitales.",
       },
       {
@@ -279,7 +279,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Centro urbano de Jocoro, Morazan, El Salvador",
         coordenadas: { lat: 13.6168, lon: -88.0164 },
-        detalle:
+        numero:
           "Proporciona atencion basica, vacunacion y seguimiento de enfermedades cronicas, garantizando cobertura en la zona norte.",
       },
       {
@@ -288,7 +288,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio El Centro, Sociedad, Morazan, El Salvador",
         coordenadas: { lat: 13.7009, lon: -87.9667 },
-        detalle:
+        numero:
           "Atiende consultas generales y programas comunitarios, contribuyendo a la reduccion de enfermedades comunes en la poblacion.",
       },
       {
@@ -297,7 +297,7 @@ export const organizacionesPorZona = {
         tipo: "Unidad de salud comunitaria",
         direccion: "Barrio El Centro, Guatajiagua, Morazan, El Salvador",
         coordenadas: { lat: 13.6735, lon: -88.2002 },
-        detalle:
+        numero:
           "Brinda servicios preventivos, control materno-infantil y vacunacion, acercando la atencion medica a comunidades rurales.",
       },
     ],

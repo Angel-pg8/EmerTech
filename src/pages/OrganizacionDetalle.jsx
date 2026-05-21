@@ -4,6 +4,7 @@ import pinIcono from "../assets/pin.png"
 import Logo from "../assets/loguito.png"
 import BackButton from "../components/BackButton"
 import { obtenerOrganizacion, obtenerZona } from "../data/organizaciones"
+import sos_icono from "../assets/sos_icono.png"
 
 function OrganizacionDetalle() {
   const navigate = useNavigate()
@@ -47,18 +48,43 @@ function OrganizacionDetalle() {
         />
       </div>
 
-      {/* DIRECCIÓN */}
-      <div
+      {/* Número*/}
+      <button
         className="mb-3 flex w-full items-center gap-4 rounded-full px-4 py-4 text-left transition-transform active:scale-95"
+        style={{ backgroundColor: "#1a2744" }}
+        onClick={() => {
+          window.location.href = `tel:${organizacion.numero}`
+        }}
+      >
+          <img src={sos_icono} alt="" className="h-20 w-20 object-contain" />
+          <p className="text-sm font-bold text-white">
+            Llamar a:
+          </p>
+        <p className="text-sm font-bold text-white px-2">
+          {organizacion.numero || "Numero de telefono no disponible"}
+        </p>
+      </button>
+
+    {/* TIPO DE EMERGENCIA QUE ATIENDE */}
+      <div
+        className="mb-3 flex w-full items-center gap-4 rounded-full px-4 py-4 text-left transition-transform cursor-default"
         style={{ backgroundColor: "#1a2744" }}
       >
         
           <img src={pinIcono} alt="" className="h-20 w-20 object-contain" />
 
         <p className="text-sm font-bold text-white">
+          {organizacion.tipo || "Dirección no disponible"}
+        </p>
+
+        <p className="text-sm font-bold text-white">
           {organizacion.direccion || "Dirección no disponible"}
         </p>
+
       </div>
+
+
+
     </main>
   )
 }
