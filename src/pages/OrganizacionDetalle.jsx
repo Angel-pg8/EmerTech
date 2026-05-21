@@ -58,7 +58,7 @@ function OrganizacionDetalle() {
         <p className="text-sm font-bold text-white">
           {organizacion.direccion || "Dirección no disponible"}
         </p>
-      </button>
+      </div>
     </main>
   )
 }
