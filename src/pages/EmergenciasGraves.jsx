@@ -14,11 +14,6 @@ const emergencias = [
     imagen: imgConvulsion,
   },
   {
-    id: "Fractura de brazo",
-    nombre: "Fractura de brazo",
-    imagen: imgFractura,
-  },
-  {
     id: "intoxicacion alimentaria",
     nombre: "Intoxicación alimentaria",
     imagen: imgIntoxicacion,
