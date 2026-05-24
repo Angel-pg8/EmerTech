@@ -7,6 +7,9 @@ import muyGraveIcono from "../assets/muy_grave_icono.png"
 import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
 import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
 import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
+import imgCalambre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/calambre muscular-LEVE.png"
+import imgEsguince from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/esguince-LEVE.png"
+import imgMareo from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/mareoleve-LEVE.png"
 import imgConvulsionGrave from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
 import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
 import imgIntoxicacionAlimentaria from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
@@ -71,7 +74,31 @@ const todasLasEmergencias = [
     nivel: "LEVE",
     color: "text-emerald-400",
   },
-    {
+  {
+    id: "Calambre muscular",
+    nombre: "Calambre muscular",
+    imagen: imgCalambre,
+    ruta: "/emergencias/leve/Calambre muscular",
+    nivel: "LEVE",
+    color: "text-emerald-400",
+  },
+  {
+    id: "Esguince",
+    nombre: "Esguince",
+    imagen: imgEsguince,
+    ruta: "/emergencias/leve/Esguince",
+    nivel: "LEVE",
+    color: "text-emerald-400",
+  },
+  {
+    id: "Mareo leve",
+    nombre: "Mareo leve",
+    imagen: imgMareo,
+    ruta: "/emergencias/leve/Mareo leve",
+    nivel: "LEVE",
+    color: "text-emerald-400",
+  },
+  {
     id: "Convulcion leve",
     nombre: "Convulsión",
     imagen: imgConvulsionGrave,
@@ -232,7 +259,7 @@ export default function Emergencias() {
         </div>
       ) : (
         /* CATEGORIAS NORMALES */
-         <div className="flex w-full max-w-lg flex-col gap-4">
+        <div className="flex w-full max-w-lg flex-col gap-4">
           {categorias.map((categoria) => (
             <button
               key={categoria.id}
