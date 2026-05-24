@@ -25,6 +25,7 @@ import QuemaduraSegundoGrado from "./pages/Emergencias_graves_pantallas/quemadur
 import Desmayo from "./pages/Emergencias_graves_pantallas/desmayo"
 import GolpeDeCalor from "./pages/Emergencias_graves_pantallas/golpe_de_calor"
 import DificultadParaRespirar from "./pages/Emergencias_graves_pantallas/dificultad_para_respirar"
+import CaidaDeAltura from "./pages/Emergencias_muygraves_pantallas/caida_de_altura"
 function AppRoutes() {
   const location = useLocation()
 
@@ -55,6 +56,7 @@ function AppRoutes() {
         <Route path="/emergencias/grave/Desmayo" element={<Desmayo />} />
         <Route path="/emergencias/grave/Golpe de calor" element={<GolpeDeCalor />} />
         <Route path="/emergencias/grave/Dificultad para respirar" element={<DificultadParaRespirar />} />
+        <Route path="/emergencias/muygraves/caida_de_altura" element={<CaidaDeAltura />} />
       </Routes>
     </div>
   )

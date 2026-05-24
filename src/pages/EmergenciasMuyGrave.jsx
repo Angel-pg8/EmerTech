@@ -2,35 +2,37 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/loguito.png"
 import BackButton from "../components/BackButton"
-import imgBajoAzucar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/bajoazucar-MUYGRAVE.png"
-import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/convulsionsevera-MUYGRAVE.png"
-import imgDolorPecho from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/dolorenelpecho-MUYGRAVE.png"
-import imgFiebre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fiebrealta-MUYGRAVE.png"
+import imgHerida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/herida-MUYGRAVE.png"
+import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fracturadebrazo-MUY GRAVE.png"
+import imgElectro from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/electro-MUY GRAVE.png"
+import imgCaida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/caida-MUYGRAVE.png"
+import imgAccidente from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/accidentetransito-MUYGRAVE.png"
 
 const emergencias = [
   {
-    id: "Convulsion",
-    docId: "Convulsión",
-    nombre: "Convulsión",
-    imagen: imgConvulsion,
+    id: "Herida profunda",
+    nombre: "Herida profunda",
+    imagen: imgHerida,
   },
   {
-    id: "Dolor-en-el-pecho",
-    docId: "Dolor en el pecho",
-    nombre: "Dolor de pecho",
-    imagen: imgDolorPecho,
+    id: "Fractura de brazo",
+    nombre: "Fractura de brazo",
+    imagen: imgFractura,
   },
   {
-    id: "Fiebre-alta-persistente",
-    docId: "Fiebre alta persistente",
-    nombre: "Fiebre alta persistente",
-    imagen: imgFiebre,
+    id: "Electrocucion",
+    nombre: "Electrocución",
+    imagen: imgElectro,
   },
   {
-    id: "Hipoglucemia",
-    docId: "Hipoglucemia",
-    nombre: "Hipoglucemia",
-    imagen: imgBajoAzucar,
+    id: "Caida de altura",
+    nombre: "Caída de altura",
+    imagen: imgCaida,
+  },
+  {
+    id: "Accidente de transito",
+    nombre: "Accidente de tránsito",
+    imagen: imgAccidente,
   },
 ]
 
