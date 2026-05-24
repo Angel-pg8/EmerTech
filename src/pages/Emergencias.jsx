@@ -7,7 +7,6 @@ import muyGraveIcono from "../assets/muy_grave_icono.png"
 import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
 import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
 import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
-import imgIntoxicacionLeve from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/intoxicacionleve-LEVE.png"
 import imgConvulsionGrave from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
 import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
 import imgIntoxicacionAlimentaria from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
@@ -72,15 +71,7 @@ const todasLasEmergencias = [
     nivel: "LEVE",
     color: "text-emerald-400",
   },
-  {
-    id: "Intoxicacion leve",
-    nombre: "Intoxicación leve",
-    imagen: imgIntoxicacionLeve,
-    ruta: "/emergencias/leve/Intoxicacion leve",
-    nivel: "LEVE",
-    color: "text-emerald-400",
-  },
-  {
+    {
     id: "Convulcion leve",
     nombre: "Convulsión",
     imagen: imgConvulsionGrave,

@@ -5,8 +5,6 @@ import BackButton from "../components/BackButton"
 import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
 import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
 import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/intoxicacionleve-LEVE.png"
-
 const emergencias = [
   {
     id: "Dolor de oido",
@@ -22,11 +20,6 @@ const emergencias = [
     id: "Deshidratacion",
     nombre: "Deshidratación",
     imagen: imgDeshidratacion,
-  },
-  {
-    id: "Intoxicacion leve",
-    nombre: "Intoxicación leve",
-    imagen: imgIntoxicacion,
   },
 ]
 
