@@ -9,25 +9,17 @@ import { normalizarTexto } from "../data/organizaciones"
 import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
 import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
 import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
-import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/intoxicacionleve-LEVE.png"
-
-import pasosDeshidratacion from "../assets/Emergencias/Leves/deshidratacion_pasos.png"
-import pasosDolorCabeza from "../assets/Emergencias/Leves/dolor_cabeza_pasos.png"
-import pasosDolorOido from "../assets/Emergencias/Leves/dolor_oido_pasos.png"
-import pasosIntoxicacion from "../assets/Emergencias/Leves/intoxicacon_leve_pasos.jpeg"
+import imgCalambre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/calambre muscular-LEVE.png"
+import imgEsguince from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/esguince-LEVE.png"
+import imgMareo from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/mareoleve-LEVE.png"
 
 const imagenesLocales = {
   Deshidratacion: imgDeshidratacion,
   "Dolor de cabeza": imgDolorCabeza,
   "Dolor de oido": imgDolorOido,
-  "Intoxicacion leve": imgIntoxicacion,
-}
-
-const imagenesPasos = {
-  Deshidratacion: pasosDeshidratacion,
-  "Dolor de cabeza": pasosDolorCabeza,
-  "Dolor de oido": pasosDolorOido,
-  "Intoxicacion leve": pasosIntoxicacion,
+  "Calambre muscular": imgCalambre,
+  Esguince: imgEsguince,
+  "Mareo leve": imgMareo,
 }
 
 function obtenerRecursoPorNombre(recursos, nombre) {
@@ -85,7 +77,6 @@ function EmergenciaDetalle() {
       nombre={nombreEmergencia}
       imagen={obtenerRecursoPorNombre(imagenesLocales, nombreEmergencia) || null}
       contacto={emergencia["Entidades a contactar"]}
-      imagenPasos={obtenerRecursoPorNombre(imagenesPasos, nombreEmergencia) || null}
     />
   )
 }

@@ -5,6 +5,10 @@ import BackButton from "../components/BackButton"
 import imgDeshidratacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/deshidratacion-LEVE.png"
 import imgDolorCabeza from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordecabeza-LEVE.png"
 import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/dolordeoido-LEVE.png"
+import imgCalambre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/calambre muscular-LEVE.png"
+import imgEsguince from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/esguince-LEVE.png"
+import imgMareo from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/mareoleve-LEVE.png"
+
 const emergencias = [
   {
     id: "Dolor de oido",
@@ -20,6 +24,21 @@ const emergencias = [
     id: "Deshidratacion",
     nombre: "Deshidratación",
     imagen: imgDeshidratacion,
+  },
+  {
+    id: "Calambre muscular",
+    nombre: "Calambre muscular",
+    imagen: imgCalambre,
+  },
+  {
+    id: "Esguince",
+    nombre: "Esguince",
+    imagen: imgEsguince,
+  },
+  {
+    id: "Mareo leve",
+    nombre: "Mareo leve",
+    imagen: imgMareo,
   },
 ]
 

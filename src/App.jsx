@@ -16,6 +16,9 @@ import OrganizacionesLista from "./pages/OrganizacionesLista"
 import DolorOido from "./pages/Emergencias_leves_pantallas/dolor_oido"
 import DolorCabeza from "./pages/Emergencias_leves_pantallas/dolor_cabeza"
 import Deshidratacion from "./pages/Emergencias_leves_pantallas/deshidratacion"
+import MareoLeve from "./pages/Emergencias_leves_pantallas/mareo"
+import Esguince from "./pages/Emergencias_leves_pantallas/esguince"
+import CalambreMuscular from "./pages/Emergencias_leves_pantallas/calambre_muscular"
 
 function AppRoutes() {
   const location = useLocation()
@@ -38,6 +41,9 @@ function AppRoutes() {
         <Route path="/emergencias/leve/Dolor de oido" element={<DolorOido />} />
         <Route path="/emergencias/leve/Dolor de cabeza" element={<DolorCabeza />} />
         <Route path="/emergencias/leve/Deshidratacion" element={<Deshidratacion />} />
+        <Route path="/emergencias/leve/Mareo leve" element={<MareoLeve />} />
+        <Route path="/emergencias/leve/Esguince" element={<Esguince />} />
+        <Route path="/emergencias/leve/Calambre muscular" element={<CalambreMuscular />} />
       </Routes>
     </div>
   )
