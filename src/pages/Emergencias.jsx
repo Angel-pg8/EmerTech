@@ -10,8 +10,6 @@ import imgDolorOido from "../assets/Portada_emergencias/Emergencias_leves/Emerge
 import imgCalambre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/calambre muscular-LEVE.png"
 import imgEsguince from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/esguince-LEVE.png"
 import imgMareo from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/mareoleve-LEVE.png"
-import imgConvulsionGrave from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
-import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
 import imgIntoxicacionAlimentaria from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
 import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/mordidadeanimal-GRAVE.png"
 import imgBajoAzucar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/bajoazucar-MUYGRAVE.png"
@@ -97,22 +95,6 @@ const todasLasEmergencias = [
     ruta: "/emergencias/leve/Mareo leve",
     nivel: "LEVE",
     color: "text-emerald-400",
-  },
-  {
-    id: "Convulcion leve",
-    nombre: "Convulsión",
-    imagen: imgConvulsionGrave,
-    ruta: "/emergencias/grave/Convulción leve",
-    nivel: "GRAVE",
-    color: "text-yellow-400",
-  },
-  {
-    id: "Fractura de brazo",
-    nombre: "Fractura de brazo",
-    imagen: imgFractura,
-    ruta: "/emergencias/grave/Fractura de brazo",
-    nivel: "GRAVE",
-    color: "text-yellow-400",
   },
   {
     id: "intoxicacion alimentaria",

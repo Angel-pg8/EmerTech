@@ -2,17 +2,14 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/loguito.png"
 import BackButton from "../components/BackButton"
-import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
-import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
 import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
 import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/mordidadeanimal-GRAVE.png"
+import imgQuemadura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/quemadura-GRAVE.png"
+import imgDesmayo from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/desmayo-GRAVE.png"
+import imgGolpeCalor from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/golpe decalor-GRAVE.png"
+import imgDificultadRespirar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/dificultad pararespirar-GRAVE.png"
 
 const emergencias = [
-  {
-    id: "Convulción leve",
-    nombre: "Convulsión",
-    imagen: imgConvulsion,
-  },
   {
     id: "intoxicacion alimentaria",
     nombre: "Intoxicación alimentaria",
@@ -22,6 +19,26 @@ const emergencias = [
     id: "Mordedura de animal",
     nombre: "Mordida de animal",
     imagen: imgMordida,
+  },
+  {
+    id: "Quemadura segundo grado",
+    nombre: "Quemadura 2° grado",
+    imagen: imgQuemadura,
+  },
+  {
+    id: "Desmayo",
+    nombre: "Desmayo",
+    imagen: imgDesmayo,
+  },
+  {
+    id: "Golpe de calor",
+    nombre: "Golpe de calor",
+    imagen: imgGolpeCalor,
+  },
+  {
+    id: "Dificultad para respirar",
+    nombre: "Dificultad para respirar",
+    imagen: imgDificultadRespirar,
   },
 ]
 
@@ -39,7 +56,7 @@ export default function EmergenciasGrave() {
       {/* HEADER */}
       <div style={{ backgroundColor: "#0d1120" }} className="px-4 pt-6 pb-4">
         <div className="mb-4 flex items-center gap-3">
-          <BackButton onClick={() => navigate(-1)} className="shrink-0" />
+          <BackButton onClick={() => navigate("/emergencias")} className="shrink-0" />
           <h1 className="text-2xl font-black text-white leading-tight">
             Más información sobre{" "}
             <span style={{ color: "#3EB9BC" }}>emergencias graves:</span>

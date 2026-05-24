@@ -6,8 +6,6 @@ import BackButton from "../components/BackButton"
 import EmergenciaDetalleLayout from "../components/EmergenciaDetalleLayout"
 import { normalizarTexto } from "../data/organizaciones"
 
-import imgConvulsion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/convulsionleve-GRAVE.png"
-import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/fracturadebrazo-GRAVES.png"
 import imgIntoxicacion from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
 import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/mordidadeanimal-GRAVE.png"
 
@@ -17,8 +15,6 @@ import pasosIntoxicacion from "../assets/Emergencias/Graves/intoxicacion_aliment
 import pasosMordida from "../assets/Emergencias/Graves/mordedura_animal_pasos.jpeg"
 
 const imagenesLocales = {
-  "Convulsion leve": imgConvulsion,
-  "Fractura de brazo": imgFractura,
   "Intoxicacion alimentaria": imgIntoxicacion,
   "Mordedura de animal": imgMordida,
 }

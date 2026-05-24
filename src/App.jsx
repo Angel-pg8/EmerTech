@@ -19,7 +19,12 @@ import Deshidratacion from "./pages/Emergencias_leves_pantallas/deshidratacion"
 import MareoLeve from "./pages/Emergencias_leves_pantallas/mareo"
 import Esguince from "./pages/Emergencias_leves_pantallas/esguince"
 import CalambreMuscular from "./pages/Emergencias_leves_pantallas/calambre_muscular"
-
+import MordeduraAnimal from "./pages/Emergencias_graves_pantallas/mordedura_animal"
+import IntoxicacionAlimentaria from "./pages/Emergencias_graves_pantallas/intoxicacion_alimentaria"
+import QuemaduraSegundoGrado from "./pages/Emergencias_graves_pantallas/quemadura_segundogrado"
+import Desmayo from "./pages/Emergencias_graves_pantallas/desmayo"
+import GolpeDeCalor from "./pages/Emergencias_graves_pantallas/golpe_de_calor"
+import DificultadParaRespirar from "./pages/Emergencias_graves_pantallas/dificultad_para_respirar"
 function AppRoutes() {
   const location = useLocation()
 
@@ -44,6 +49,12 @@ function AppRoutes() {
         <Route path="/emergencias/leve/Mareo leve" element={<MareoLeve />} />
         <Route path="/emergencias/leve/Esguince" element={<Esguince />} />
         <Route path="/emergencias/leve/Calambre muscular" element={<CalambreMuscular />} />
+        <Route path="/emergencias/grave/Mordedura de animal" element={<MordeduraAnimal />} />
+        <Route path="/emergencias/grave/intoxicacion alimentaria" element={<IntoxicacionAlimentaria />} />
+        <Route path="/emergencias/grave/Quemadura segundo grado" element={<QuemaduraSegundoGrado />} />
+        <Route path="/emergencias/grave/Desmayo" element={<Desmayo />} />
+        <Route path="/emergencias/grave/Golpe de calor" element={<GolpeDeCalor />} />
+        <Route path="/emergencias/grave/Dificultad para respirar" element={<DificultadParaRespirar />} />
       </Routes>
     </div>
   )

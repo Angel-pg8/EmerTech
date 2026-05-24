@@ -48,7 +48,7 @@ export default function EmergenciasMuyGrave() {
       {/* HEADER */}
       <div style={{ backgroundColor: "#0d1120" }} className="px-4 pt-6 pb-4">
         <div className="mb-4 flex items-center gap-3">
-          <BackButton onClick={() => navigate(-1)} className="shrink-0" />
+          <BackButton onClick={() => navigate("/emergencias")} className="shrink-0" />
           <h1 className="text-2xl font-black text-white leading-tight">
             Más información sobre{" "}
             <span style={{ color: "#3EB9BC" }}>emergencias muy graves:</span>
