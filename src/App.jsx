@@ -25,39 +25,57 @@ import QuemaduraSegundoGrado from "./pages/Emergencias_graves_pantallas/quemadur
 import Desmayo from "./pages/Emergencias_graves_pantallas/desmayo"
 import GolpeDeCalor from "./pages/Emergencias_graves_pantallas/golpe_de_calor"
 import DificultadParaRespirar from "./pages/Emergencias_graves_pantallas/dificultad_para_respirar"
+import HeridaProfunda from "./pages/Emergencias_muygraves_pantallas/herida_profunda"
+import FracturaDeBrazo from "./pages/Emergencias_muygraves_pantallas/fractura_de_brazo"
+import Electrocutacion from "./pages/Emergencias_muygraves_pantallas/electrocutacion"
 import CaidaDeAltura from "./pages/Emergencias_muygraves_pantallas/caida_de_altura"
+import AccidenteTransito from "./pages/Emergencias_muygraves_pantallas/accidente_de_transito"
+
 function AppRoutes() {
   const location = useLocation()
 
   return (
     <div key={location.pathname} className="screen-transition">
       <Routes location={location}>
-        <Route path="/" element={<Emergencias />} />
-        <Route path="/emergencias" element={<Emergencias />} />
-        <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
-        <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
-        <Route path="/emergencias/grave/:id" element={<EmergenciaDetalleGrave />} />
-        <Route path="/emergencias/muygraves" element={<EmergenciasMuyGrave />} />
-        <Route path="/emergencias/muygraves/:id" element={<EmergenciaDetalleMuyGrave />} />
-        <Route path="/emergencias/grave" element={<EmergenciasGrave />} />
-        <Route path="/organizaciones" element={<Organizaciones />} />
-        <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
-        <Route path="/organizaciones/:zona/:id" element={<OrganizacionDetalle />} />
-        <Route path="/chat" element={<Navigate to="/" replace />} />
-        <Route path="/emergencias/leve/Dolor de oido" element={<DolorOido />} />
-        <Route path="/emergencias/leve/Dolor de cabeza" element={<DolorCabeza />} />
-        <Route path="/emergencias/leve/Deshidratacion" element={<Deshidratacion />} />
-        <Route path="/emergencias/leve/Mareo leve" element={<MareoLeve />} />
-        <Route path="/emergencias/leve/Esguince" element={<Esguince />} />
-        <Route path="/emergencias/leve/Calambre muscular" element={<CalambreMuscular />} />
-        <Route path="/emergencias/grave/Mordedura de animal" element={<MordeduraAnimal />} />
-        <Route path="/emergencias/grave/intoxicacion alimentaria" element={<IntoxicacionAlimentaria />} />
-        <Route path="/emergencias/grave/Quemadura segundo grado" element={<QuemaduraSegundoGrado />} />
-        <Route path="/emergencias/grave/Desmayo" element={<Desmayo />} />
-        <Route path="/emergencias/grave/Golpe de calor" element={<GolpeDeCalor />} />
-        <Route path="/emergencias/grave/Dificultad para respirar" element={<DificultadParaRespirar />} />
-        <Route path="/emergencias/muygraves/caida_de_altura" element={<CaidaDeAltura />} />
-      </Routes>
+      <Route path="/" element={<Emergencias />} />
+      <Route path="/emergencias" element={<Emergencias />} />
+
+      {/* Leves */}
+      <Route path="/emergencias/leve" element={<EmergenciasLeve />} />
+      <Route path="/emergencias/leve/Dolor de oido" element={<DolorOido />} />
+      <Route path="/emergencias/leve/Dolor de cabeza" element={<DolorCabeza />} />
+      <Route path="/emergencias/leve/Deshidratacion" element={<Deshidratacion />} />
+      <Route path="/emergencias/leve/Mareo leve" element={<MareoLeve />} />
+      <Route path="/emergencias/leve/Esguince" element={<Esguince />} />
+      <Route path="/emergencias/leve/Calambre muscular" element={<CalambreMuscular />} />
+      <Route path="/emergencias/leve/:id" element={<EmergenciaDetalle />} />
+
+      {/* Graves */}
+      <Route path="/emergencias/grave" element={<EmergenciasGrave />} />
+      <Route path="/emergencias/grave/Mordedura de animal" element={<MordeduraAnimal />} />
+      <Route path="/emergencias/grave/intoxicacion alimentaria" element={<IntoxicacionAlimentaria />} />
+      <Route path="/emergencias/grave/Quemadura segundo grado" element={<QuemaduraSegundoGrado />} />
+      <Route path="/emergencias/grave/Desmayo" element={<Desmayo />} />
+      <Route path="/emergencias/grave/Golpe de calor" element={<GolpeDeCalor />} />
+      <Route path="/emergencias/grave/Dificultad para respirar" element={<DificultadParaRespirar />} />
+      <Route path="/emergencias/grave/:id" element={<EmergenciaDetalleGrave />} />
+
+      {/* Muy graves */}
+      <Route path="/emergencias/muygraves" element={<EmergenciasMuyGrave />} />
+      <Route path="/emergencias/muygraves/herida_profunda" element={<HeridaProfunda />} />
+      <Route path="/emergencias/muygraves/fractura_de_brazo" element={<FracturaDeBrazo />} />
+      <Route path="/emergencias/muygraves/electrocutacion" element={<Electrocutacion />} />
+      <Route path="/emergencias/muygraves/caida_de_altura" element={<CaidaDeAltura />} />
+      <Route path="/emergencias/muygraves/accidente_de_transito" element={<AccidenteTransito />} />
+      <Route path="/emergencias/muygraves/:id" element={<EmergenciaDetalleMuyGrave />} />
+
+      {/* Organizaciones */}
+      <Route path="/organizaciones" element={<Organizaciones />} />
+      <Route path="/organizaciones/:zona" element={<OrganizacionesLista />} />
+      <Route path="/organizaciones/:zona/:id" element={<OrganizacionDetalle />} />
+
+      <Route path="/chat" element={<Navigate to="/" replace />} />
+    </Routes>
     </div>
   )
 }
@@ -73,7 +91,6 @@ function App() {
     return () => window.removeEventListener("resize", check)
   }, [])
 
-  // En móvil: app normal sin marco
   if (isMobile) {
     return (
       <BrowserRouter>
@@ -94,7 +111,6 @@ function App() {
     )
   }
 
-  // En desktop: con marco iPhone
   return (
     <BrowserRouter>
       <div className="flex min-h-screen items-center justify-center bg-gray-900 p-6">
@@ -112,24 +128,19 @@ function App() {
             `,
           }}
         >
-          {/* Botones laterales izquierdos */}
           <div className="absolute left-[-13px] top-[80px] h-6 w-[3px] rounded-l bg-[#2a2a2a]" />
           <div className="absolute left-[-13px] top-[120px] h-11 w-[3px] rounded-l bg-[#2a2a2a]" />
           <div className="absolute left-[-13px] top-[175px] h-11 w-[3px] rounded-l bg-[#2a2a2a]" />
-          {/* Botón lateral derecho */}
           <div className="absolute right-[-13px] top-[110px] h-16 w-[3px] rounded-r bg-[#2a2a2a]" />
 
-          {/* Dynamic Island */}
           <div className="mx-auto mt-3 h-7 w-24 rounded-full bg-black" />
 
-          {/* Contenido */}
           <div className="relative flex flex-col overflow-hidden" style={{ height: "calc(844px - 60px)" }}>
             <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
               <GoogleAdBanner />
               <AppRoutes />
             </div>
             <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
-
             <div className="absolute bottom-0 left-0 right-0 z-50">
               <Navbar
                 isChatOpen={isChatOpen}
@@ -138,7 +149,6 @@ function App() {
             </div>
           </div>
 
-          {/* Home indicator */}
           <div className="absolute bottom-2 left-1/2 h-1 w-24 -translate-x-1/2 rounded-full bg-white/30" />
         </div>
       </div>

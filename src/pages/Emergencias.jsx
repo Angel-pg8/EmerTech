@@ -12,10 +12,19 @@ import imgEsguince from "../assets/Portada_emergencias/Emergencias_leves/Emergen
 import imgMareo from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_leves/mareoleve-LEVE.png"
 import imgIntoxicacionAlimentaria from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/intoxicacionalimentaria-GRAVE.png"
 import imgMordida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/mordidadeanimal-GRAVE.png"
+import imgQuemadura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/quemadura-GRAVE.png"
+import imgDesmayo from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/desmayo-GRAVE.png"
+import imgGolpeCalor from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/golpe decalor-GRAVE.png"
+import imgDificultadRespirar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_graves/dificultad pararespirar-GRAVE.png"
 import imgBajoAzucar from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/bajoazucar-MUYGRAVE.png"
 import imgConvulsionMuyGrave from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/convulsionsevera-MUYGRAVE.png"
 import imgDolorPecho from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/dolorenelpecho-MUYGRAVE.png"
 import imgFiebre from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fiebrealta-MUYGRAVE.png"
+import imgHerida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/herida-MUYGRAVE.png"
+import imgFractura from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/fracturadebrazo-MUY GRAVE.png"
+import imgElectro from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/electro-MUY GRAVE.png"
+import imgCaida from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/caida-MUYGRAVE.png"
+import imgAccidente from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/accidentetransito-MUYGRAVE.png"
 
 const categorias = [
   {
@@ -27,6 +36,7 @@ const categorias = [
     icono: leveIcono,
     ruta: "/emergencias/leve",
   },
+
   {
     id: "grave",
     nivel: "GRAVES",
@@ -105,6 +115,38 @@ const todasLasEmergencias = [
     color: "text-yellow-400",
   },
   {
+    id: "Quemadura segundo grado",
+    nombre: "Quemadura 2° grado",
+    imagen: imgQuemadura,
+    ruta: "/emergencias/grave/Quemadura segundo grado",
+    nivel: "GRAVE",
+    color: "text-yellow-400",
+  },
+  {
+    id: "Desmayo",
+    nombre: "Desmayo",
+    imagen: imgDesmayo,
+    ruta: "/emergencias/grave/Desmayo",
+    nivel: "GRAVE",
+    color: "text-yellow-400",
+  },
+  {
+    id: "Golpe de calor",
+    nombre: "Golpe de calor",
+    imagen: imgGolpeCalor,
+    ruta: "/emergencias/grave/Golpe de calor",
+    nivel: "GRAVE",
+    color: "text-yellow-400",
+  },
+  {
+    id: "Dificultad para respirar",
+    nombre: "Dificultad para respirar",
+    imagen: imgDificultadRespirar,
+    ruta: "/emergencias/grave/Dificultad para respirar",
+    nivel: "GRAVE",
+    color: "text-yellow-400",
+  },
+  {
     id: "Mordedura de animal",
     nombre: "Mordida de animal",
     imagen: imgMordida,
@@ -141,6 +183,46 @@ const todasLasEmergencias = [
     nombre: "Hipoglucemia",
     imagen: imgBajoAzucar,
     ruta: "/emergencias/muygraves/Hipoglucemia",
+    nivel: "MUY GRAVE",
+    color: "text-red-500",
+  },
+  {
+    id: "herida_profunda",
+    nombre: "Herida profunda",
+    imagen: imgHerida,
+    ruta: "/emergencias/muygraves/herida_profunda",
+    nivel: "MUY GRAVE",
+    color: "text-red-500",
+  },
+  {
+    id: "fractura_de_brazo",
+    nombre: "Fractura de brazo",
+    imagen: imgFractura,
+    ruta: "/emergencias/muygraves/fractura_de_brazo",
+    nivel: "MUY GRAVE",
+    color: "text-red-500",
+  },
+  {
+    id: "electrocutacion",
+    nombre: "Electrocución",
+    imagen: imgElectro,
+    ruta: "/emergencias/muygraves/electrocutacion",
+    nivel: "MUY GRAVE",
+    color: "text-red-500",
+  },
+  {
+    id: "caida_de_altura",
+    nombre: "Caída de altura",
+    imagen: imgCaida,
+    ruta: "/emergencias/muygraves/caida_de_altura",
+    nivel: "MUY GRAVE",
+    color: "text-red-500",
+  },
+  {
+    id: "accidente_de_transito",
+    nombre: "Accidente de tránsito",
+    imagen: imgAccidente,
+    ruta: "/emergencias/muygraves/accidente_de_transito",
     nivel: "MUY GRAVE",
     color: "text-red-500",
   },

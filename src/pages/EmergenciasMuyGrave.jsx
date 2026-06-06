@@ -9,31 +9,11 @@ import imgCaida from "../assets/Portada_emergencias/Emergencias_leves/Emergencia
 import imgAccidente from "../assets/Portada_emergencias/Emergencias_leves/Emergencias_muygraves/accidentetransito-MUYGRAVE.png"
 
 const emergencias = [
-  {
-    id: "Herida profunda",
-    nombre: "Herida profunda",
-    imagen: imgHerida,
-  },
-  {
-    id: "Fractura de brazo",
-    nombre: "Fractura de brazo",
-    imagen: imgFractura,
-  },
-  {
-    id: "Electrocucion",
-    nombre: "Electrocución",
-    imagen: imgElectro,
-  },
-  {
-    id: "Caida de altura",
-    nombre: "Caída de altura",
-    imagen: imgCaida,
-  },
-  {
-    id: "Accidente de transito",
-    nombre: "Accidente de tránsito",
-    imagen: imgAccidente,
-  },
+  { id: "herida_profunda",       nombre: "Herida profunda",       imagen: imgHerida },
+  { id: "fractura_de_brazo",     nombre: "Fractura de brazo",     imagen: imgFractura },
+  { id: "electrocutacion",         nombre: "electrocutacion",         imagen: imgElectro },
+  { id: "caida_de_altura",       nombre: "Caída de altura",       imagen: imgCaida },
+  { id: "accidente_de_transito", nombre: "Accidente de tránsito", imagen: imgAccidente },
 ]
 
 export default function EmergenciasMuyGrave() {
