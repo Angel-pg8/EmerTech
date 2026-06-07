@@ -82,7 +82,9 @@ export default function Deshidratacion() {
         boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
       }}>
         <span style={{ fontSize: 13, color: "#6b7280", fontWeight: 500 }}>Entidades a contactar</span>
-        <span style={{ fontSize: 14, fontWeight: 700, color: "#1a56db" }}>FOSALUD 2528-9700</span>
+        <a href="tel:25289700" style={{ fontSize: 14, fontWeight: 700, color: "#1a56db", textDecoration: "none" }}>
+          FOSALUD 2528-9700
+        </a>
       </div>
 
       {/* Tarjeta infografía */}

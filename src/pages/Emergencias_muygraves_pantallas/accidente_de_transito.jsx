@@ -74,7 +74,9 @@ export default function AccidenteDeTransito() {
         boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
       }}>
         <span style={{ fontSize: 13, color: "#6b7280", fontWeight: 500 }}>Entidades a contactar</span>
-        <span style={{ fontSize: 14, fontWeight: 700, color: "#1a56db" }}>911 / PNC 1222</span>
+        <a href="tel:911" style={{ fontSize: 14, fontWeight: 700, color: "#1a56db", textDecoration: "none" }}>
+          911 / PNC 1222
+        </a>
       </div>
 
       {/* Tarjeta infografía */}
