@@ -95,10 +95,15 @@ function App() {
     return (
       <BrowserRouter>
         <div className="relative flex h-screen min-h-screen flex-col bg-[#0a0e1a]">
-          <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
-            <GoogleAdBanner />
-            <AppRoutes />
-          </div>
+          <div
+  className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden"
+  style={{ scrollbarWidth: "none" }} // ← sin paddingTop
+>
+  <GoogleAdBanner />
+  <AppRoutes />
+</div>
+
+
           <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
           <div className="fixed bottom-0 left-0 right-0 z-50">
             <Navbar
