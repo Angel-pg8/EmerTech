@@ -6,9 +6,9 @@ function GoogleAdBanner() {
         top: 0,
         zIndex: 1000,
         width: '100%',
-        overflow: 'hidden',
         backgroundColor: '#0d1120',
         borderBottom: '1px solid rgba(255,255,255,0.1)',
+        flexShrink: 0,  // ← evita que se comprima
       }}
     >
       <video
@@ -18,8 +18,8 @@ function GoogleAdBanner() {
         playsInline
         style={{
           width: '100%',
-          height: '130px',
-          objectFit: 'cover',   
+          height: '80px',
+          objectFit: 'cover',
           display: 'block',
         }}
       >
