@@ -103,7 +103,7 @@ function Organizaciones() {
                 onClick={() =>
                   navigate(`/organizaciones/${organizacion.zonaSlug}/${organizacion.id}`)
                 }
-                className="flex w-full items-center gap-4 rounded-full px-4 py-3 text-left transition-transform active:scale-95"
+                className="flex w-full items-center gap-4 rounded-3xl px-4 py-3 text-left transition-transform active:scale-95"
                 style={{ backgroundColor: "#1a2744" }}
               >
                 <img
@@ -130,7 +130,7 @@ function Organizaciones() {
           <button
             key={zona.slug}
             onClick={() => navigate(`/organizaciones/${zona.slug}`)}
-            className="flex w-full items-center gap-4 rounded-full px-4 py-3 text-left transition-transform active:scale-95"
+            className="flex w-full items-center gap-4 rounded-3xl px-4 py-3 text-left transition-transform active:scale-95"
             style={{ backgroundColor: "#1a2744" }}
           >
            

@@ -49,7 +49,7 @@ function OrganizacionesLista() {
 
       {/* BUSCADOR */}
       <div
-        className="mb-5 flex items-center gap-2 rounded-xl px-3 py-2"
+        className="mb-5 flex items-center gap-2 rounded-3xl px-3 py-2"
         style={{ backgroundColor: "#1a2236" }}
       >
         <svg
@@ -96,7 +96,7 @@ function OrganizacionesLista() {
             <button
               key={organizacion.id}
               onClick={() => navigate(`/organizaciones/${zona}/${organizacion.id}`)}
-              className="flex w-full items-center gap-4 rounded-full px-4 py-3 text-left transition-transform active:scale-95"
+              className="flex w-full items-center gap-4 rounded-3xl px-4 py-3 text-left transition-transform active:scale-95"
               style={{ backgroundColor: "#1a2744" }}
             >
               
